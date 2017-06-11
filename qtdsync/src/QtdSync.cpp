@@ -1,6 +1,6 @@
 #include "QtdSync.h"
-
 #include "QtdBase.h"
+
 #include "ui_QtdSyncAuthDlg.h"
 #include "ui_QtdSyncFolderBindingDlg.h"
 #include "ui_QtdSyncScheduledBackupDlg.h"
@@ -84,7 +84,11 @@ QtdSync::QtdSync(int& argc, char** argv, ShowDialog eDlg, QStringList files, Qtd
 #endif
 
     // check if we have writing access to the applicationPath
+#if QT_VERSION >= 0x050000
+    m_appConfigFile = QDir::fromNativeSeparators(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)) + "/qtdsync.xml";
+#else
     m_appConfigFile = QDir::fromNativeSeparators(QDesktopServices::storageLocation(QDesktopServices::DataLocation)) + "/qtdsync.xml";
+#endif
     QFile file(qApp->applicationDirPath() + "/dummyFile.tst");
     if (file.open(QIODevice::WriteOnly)) {
         file.write(QByteArray("dummyData"));
@@ -98,7 +102,11 @@ QtdSync::QtdSync(int& argc, char** argv, ShowDialog eDlg, QStringList files, Qtd
         // create data location path if not exist
         QFileInfo fi(m_appConfigFile);
         if (!fi.absoluteDir().exists()) {
+#if QT_VERSION >= 0x050000
+            QDir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)).mkpath(fi.absolutePath());
+#else
             QDir(QDesktopServices::storageLocation(QDesktopServices::DataLocation)).mkpath(fi.absolutePath());
+#endif
         }
     }
 
@@ -455,7 +463,11 @@ void QtdSync::loadConfig(bool bClearQtd)
 
             QDomElement nNode = root.firstChildElement("geometry");
             if (!nNode.isNull()) {
+#if QT_VERSION >= 0x050000
+                m_geometry = QByteArray::fromBase64(nNode.text().toLatin1());
+#elif
                 m_geometry = QByteArray::fromBase64(nNode.text().toAscii());
+#endif
             }
         }
 
@@ -1820,7 +1832,11 @@ bool QtdSync::doBackup(QStringList files, QMap<QString, QString> config, QMap<QS
                     if (!ex.startsWith("/")) {
                         QString::iterator it = ex.begin();
                         for (it; it != ex.end(); it++) {
+#if QT_VERSION >= 0x050000
+                            unsigned char t = it->toLatin1();
+#else
                             unsigned char t = it->toAscii();
+#endif
                             if (t > char(127)) {
                                 *it = QChar('*');
                             }
@@ -1833,7 +1849,11 @@ bool QtdSync::doBackup(QStringList files, QMap<QString, QString> config, QMap<QS
                 if (exFile != "/") {
                     QString::iterator it = exFile.begin();
                     for (it; it != exFile.end(); it++) {
+#if QT_VERSION >= 0x050000
+                        unsigned char t = it->toLatin1();
+#else
                         unsigned char t = it->toAscii();
+#endif
                         if (t > char(127)) {
                             *it = QChar('*');
                         }
@@ -1930,7 +1950,11 @@ bool QtdSync::doBackup(QStringList files, QMap<QString, QString> config, QMap<QS
                             if (pDlg) m_pL_Folder->setText(outLine);
                         }
                         QRegExp regExp("to-check=(\\d+)/(\\d+)");
+#if QT_VERSION >= 0x050000
+                        if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 1) {
+#else
                         if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 1) {
+#endif
                             if (rangeMax != regExp.cap(2).toInt()) {
                                 if (pDlg) m_pProgressBar->setMaximum(rangeMax = regExp.cap(2).toInt());
                                 if (pDlg) m_pProgressBar->setFormat("%v/%m");
@@ -1938,22 +1962,38 @@ bool QtdSync::doBackup(QStringList files, QMap<QString, QString> config, QMap<QS
                             if (pDlg) m_pProgressBar->setValue(nCurCount = (rangeMax - regExp.cap(1).toInt()));
                         }
                         regExp.setPattern("\\s(\\d+)%\\s");
+#if QT_VERSION >= 0x050000
+                        if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                         if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                             if (pDlg) m_pProgressBarFile->setValue(regExp.cap(1).toInt());
                         }
 
                         regExp.setPattern("Total\\stransferred\\sfile\\ssize:\\s(\\d+)\\sbytes");
+#if QT_VERSION >= 0x050000
+                        if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                         if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                             nTotalFileSize += regExp.cap(1).toULongLong() / 1024;
                         }
 
                         regExp.setPattern("Total\\sfile\\ssize:\\s(\\d+)\\sbytes");
+#if QT_VERSION >= 0x050000
+                        if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                         if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                             nAllFilesSize += regExp.cap(1).toULongLong() / 1024;
                         }
 
                         regExp.setPattern("\\s([\\.\\d]+[k|M|G]B/s)\\s");
+#if QT_VERSION >= 0x050000
+                        if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                         if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                             currentSpeedString = regExp.cap(1);
                             if (pDlg) m_pL_Speed->setText("<b>" + currentSpeedString + "</b>");
                         }
@@ -2019,23 +2059,39 @@ bool QtdSync::doBackup(QStringList files, QMap<QString, QString> config, QMap<QS
                     if (pDlg) m_pL_Folder->setText(outLine);
                 }
                 QRegExp regExp("to-check=(\\d+)/(\\d+)");
+#if QT_VERSION >= 0x050000
+                if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 1) {
+#else
                 if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 1) {
+#endif
                     if (rangeMax != regExp.cap(2).toInt()) {
                         if (pDlg) m_pProgressBar->setMaximum(rangeMax = regExp.cap(2).toInt());
                     }
                     if (pDlg) m_pProgressBar->setValue(nCurCount = (rangeMax - regExp.cap(1).toInt()));
                 }
                 regExp.setPattern("\\s(\\d+)%\\s");
+#if QT_VERSION >= 0x050000
+                if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                 if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                     if (pDlg) m_pProgressBarFile->setValue(regExp.cap(1).toInt());
                 }
                 regExp.setPattern("Total\\stransferred\\sfile\\ssize:\\s+(\\d+)\\s+bytes");
+#if QT_VERSION >= 0x050000
+                if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                 if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                     nTotalFileSize += regExp.cap(1).toULongLong() / 1024;
                 }
 
                 regExp.setPattern("Total\\sfile\\ssize:\\s+(\\d+)\\s+bytes");
+#if QT_VERSION >= 0x050000
+                if (regExp.indexIn(outLine) != -1 && regExp.captureCount() > 0) {
+#else
                 if (regExp.indexIn(outLine) != -1 && regExp.numCaptures() > 0) {
+#endif
                     nAllFilesSize += regExp.cap(1).toULongLong() / 1024;
                 }
             }
@@ -2618,7 +2674,11 @@ bool QtdSync::readQtd(QString content, QString filename)
             if (nNode.hasAttribute("password")) {
                 m_config.destination.password = nNode.attribute("password");
                 if (version >= 4) {
+#if QT_VERSION >= 0x050000
+                    QByteArray passStr = QByteArray::fromBase64(m_config.destination.password.toLatin1());
+#else
                     QByteArray passStr = QByteArray::fromBase64(m_config.destination.password.toAscii());
+#endif
                     QtdCrypt::decrypt(passStr, QTD_PASS_HASH);
                     m_config.destination.password = QString(passStr);
                 } else if (version == 3) {
@@ -2839,7 +2899,11 @@ QString QtdSync::writeQtd(bool bRealSaving)
                 }
             }
             if (m_config.destination.bStorePassWd && m_config.destination.password != "") {
+#if QT_VERSION >= 0x050000
+                QByteArray passStr = m_config.destination.password.toLatin1();
+#else
                 QByteArray passStr = m_config.destination.password.toAscii();
+#endif
                 QtdCrypt::encrypt(passStr, QTD_PASS_HASH);
                 passStr = passStr.toBase64();
                 node.setAttribute("password", QString(passStr));
@@ -3161,7 +3225,11 @@ QPair<QStringList, QStringList> QtdSync::validateKnownQtd()
             if (m_settings.monitor.bDriveLetters) {
                 QFileInfoList drives = QDir::drives();
                 foreach (QFileInfo drive, drives) {
+#if QT_VERSION >= 0x050000
+                    char driveLetter = drive.absolutePath().toUpper().at(0).toLatin1();
+#else
                     char driveLetter = drive.absolutePath().toUpper().at(0).toAscii();
+#endif
                     if (m_settings.monitor.driveTypes.contains(QtdTools::getDriveType(driveLetter))) {
                         QString fileName = QString("%1%2").arg(drive.absolutePath()).arg(qtd.mid(3));
                         if (QFile(fileName).exists()) {

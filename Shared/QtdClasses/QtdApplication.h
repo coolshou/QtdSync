@@ -27,14 +27,14 @@ class QtdApplication : public QApplication
 {
     Q_OBJECT
 public:
-    typedef enum EnMessageType {
+    enum EnMessageType {
          eUnknown
         ,eInformation
         ,eWarning
         ,eError
     };
 
-    typedef struct Message {
+    struct Message {
         QDateTime     time;
         QString       text;
         EnMessageType eType;

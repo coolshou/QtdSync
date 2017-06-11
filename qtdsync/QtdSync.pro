@@ -1,5 +1,5 @@
 TEMPLATE     = app
-TARGET       = QtdSync
+TARGET       = qtdsync
 LANGUAGE     = C++
 INCLUDEPATH += include ./../Shared/QtdBase
 CONFIG      += qt warn_on debug_and_release
@@ -59,7 +59,9 @@ FORMS       =   forms/QtdSyncDlg.ui \
                 forms/QtdSyncSSHFolderDlg.ui \
                 forms/QtdSyncFolderBindingDlg.ui
 
-TRANSLATIONS +=  translations/qtdsync_de_DE.ts \
-                 translations/qtdsync_en_US.ts
+TRANSLATIONS +=  translations/qtdsync_en_US.ts \
+                 translations/qtdsync_de_DE.ts \
+                 translations/qtdsync_fr_FR.ts
+
                  
 include(./../Shared/QtdClasses/QtdClasses.pri)

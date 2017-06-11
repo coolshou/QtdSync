@@ -84,7 +84,7 @@ public:
 #ifndef WIN32
 int ShellExecuteA(int* pParent, char* cmd, char* file, char* args, char* dir, int nType);
 
-#define ExitProcess(n) _exit(n)
+#define ExitProcess(n) exit(n)
 #define SW_SHOW 0
 #define SW_HIDE 0
 #endif

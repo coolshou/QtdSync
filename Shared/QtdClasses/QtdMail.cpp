@@ -22,6 +22,25 @@ QtdMail::~QtdMail()
 // Basic error checking for send() and recv() functions
 #define Check(fnStatus, error) { int iStatus = fnStatus; if(!((iStatus != -1) && iStatus)) { p->deleteLater(); return error; } }
 #ifndef NDEBUG
+#if QT_VERSION >= 0x050000
+#define SendNReceive(msg, error) { \
+    QString str = msg; \
+    answer = ""; \
+    qDebug() << QString("> ") + msg; \
+    Check(smtpServer.write(str.toLatin1(), str.length()), error); \
+    while (smtpServer.waitForReadyRead(1000)) { \
+        answer += smtpServer.readAll(); \
+    } \
+    qDebug() << QString("< ") + answer; \
+    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
+        if (line.startsWith("5")) { \
+            smtpServer.close(); \
+            p->deleteLater(); \
+            return error; \
+        } \
+    } \
+}
+#else
 #define SendNReceive(msg, error) { \
     QString str = msg; \
     answer = ""; \
@@ -31,6 +50,23 @@ QtdMail::~QtdMail()
         answer += smtpServer.readAll(); \
     } \
     qDebug() << QString("< ") + answer; \
+    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
+        if (line.startsWith("5")) { \
+            smtpServer.close(); \
+            p->deleteLater(); \
+            return error; \
+        } \
+    } \
+}
+#endif
+#else
+#if QT_VERSION >= 0x050000
+#define SendNReceive(msg, error) { \
+    QString str = msg; \
+    Check(smtpServer.write(str.toLatin1(), str.length()), error); \
+    while (smtpServer.waitForReadyRead(1000)) { \
+        answer += smtpServer.readAll(); \
+    } \
     foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
         if (line.startsWith("5")) { \
             smtpServer.close(); \
@@ -54,6 +90,7 @@ QtdMail::~QtdMail()
         } \
     } \
 }
+#endif
 #endif
 
 //----------------------------------------------------------------------------
@@ -134,8 +171,11 @@ QtdMail::SendError QtdMail::sendMail()
     SendNReceive(QString("EHLO %1\r\n").arg(priv_currentAddress()), eSendError_Helo);
     if (m_bUserAuth) {
         SendNReceive(QString("AUTH LOGIN\r\n"), eSendError_SmtpUndefined);
+#if QT_VERSION >= 0x050000
+#else
         SendNReceive(QString("%1\r\n").arg(QString(m_userName.toAscii().toBase64())), eSendError_UserName);
         SendNReceive(QString("%1\r\n").arg(QString(m_password.toAscii().toBase64())), eSendError_Password);
+#endif
     }
     SendNReceive(QString("MAIL FROM:<%1>\r\n").arg(m_senderAddr), eSendError_MailFrom);
     SendNReceive(QString("RCPT TO:<%1>\r\n").arg(m_receiverAddr), eSendError_MailTo);
@@ -310,9 +350,13 @@ bool QtdMail::toXml(QDomElement& node)
 
     if (authenticationEnabled()) {
         condNode = doc.createElement("authentication");
+#if QT_VERSION >= 0x050000
+        QByteArray passStr = password().toLatin1();
+        QByteArray userStr = user().toLatin1();
+#else
         QByteArray passStr = password().toAscii();
         QByteArray userStr = user().toAscii();
-
+#endif
         QtdCrypt::encrypt(passStr, QTD_PASS_HASH);
         QtdCrypt::encrypt(userStr, QTD_PASS_HASH);
 
@@ -343,10 +387,13 @@ void QtdMail::fromXml(QDomElement nNode)
         if (!cNode.isNull()) {
             QString user = cNode.attribute("user", "");
             QString pass = cNode.attribute("password", "");
-
+#if QT_VERSION >= 0x050000
+            QByteArray passStr = QByteArray::fromBase64(pass.toLatin1());
+            QByteArray userStr = QByteArray::fromBase64(user.toLatin1());
+#else
             QByteArray passStr = QByteArray::fromBase64(pass.toAscii());
             QByteArray userStr = QByteArray::fromBase64(user.toAscii());
-
+#endif
             QtdCrypt::decrypt(passStr, QTD_PASS_HASH);
             QtdCrypt::decrypt(userStr, QTD_PASS_HASH);
 

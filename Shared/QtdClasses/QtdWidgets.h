@@ -273,12 +273,17 @@ private:
 
 //==============================================================================
 // http://developer.qt.nokia.com/faq/answer/how_can_i_do_multiselection_in_a_qcalendarwidget
-class QtCalendarWidget : public QCalendarWidget {
+class QtCalendarWidget : public QCalendarWidget
+{
   Q_OBJECT
 public:
   QtCalendarWidget(QWidget *parent = 0) : QCalendarWidget(parent)
   {
+#if QT_VERSION >= 0x050000
+    //TODO: Qt5's qFindChild ??
+#else
     view = qFindChild<QTableView *>(this);
+#endif
     view->viewport()->installEventFilter(this);
   }
  

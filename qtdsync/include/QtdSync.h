@@ -5,6 +5,9 @@
 #include "QtdApplication.h"
 #include "QtdTools.h"
 #include "QtdMail.h"
+#include <QRegExp>
+#include <QFileIconProvider>
+#include <QPushButton>
 
 #include "ui_QtdSyncDlg.h"
 #include "ui_QtdSyncConfigDlg.h"
@@ -358,6 +361,7 @@ private:
     QString                m_tmpString2;
     QString                m_binPath;
     QString                m_homePath;
+    QString                m_appConfigFile;
 
     QMap<QString, QString> p_config;
 

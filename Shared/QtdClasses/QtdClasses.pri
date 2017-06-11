@@ -1,4 +1,9 @@
 DEFINES += QTD_CLASSES
+QT += widgets
+QT += xml
+QT += network
+QT += core
+
 INCLUDEPATH += $$PWD
 
 HEADERS +=  $$PWD/QtdApplication.h \
