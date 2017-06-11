@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en">
-<context>
-    <name>MaiaObject</name>
-    <message>
-        <location filename="K:/private/Shared/QtdClasses/LibMaia/maiaObject.cpp" line="230"/>
-        <source>parse error: invalid xml-rpc. not conforming to spec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
+<TS version="2.1" language="en">
 <context>
     <name>QtdSpecialMessages</name>
     <message>
@@ -37,22 +29,22 @@
     <message>
         <location filename="../forms/QtdSyncDlg.ui" line="205"/>
         <location filename="../forms/QtdSyncDlg.ui" line="208"/>
-        <location filename="../src/QtdSync.cpp" line="213"/>
+        <location filename="../src/QtdSync.cpp" line="235"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/QtdSyncDlg.ui" line="238"/>
         <location filename="../forms/QtdSyncDlg.ui" line="241"/>
-        <location filename="../src/QtdSync.cpp" line="216"/>
+        <location filename="../src/QtdSync.cpp" line="238"/>
         <source>About QtdSync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/QtdSyncDlg.ui" line="374"/>
         <location filename="../forms/QtdSyncDlg.ui" line="402"/>
-        <location filename="../src/QtdSync.cpp" line="2295"/>
-        <location filename="../src/QtdSync.cpp" line="4637"/>
+        <location filename="../src/QtdSync.cpp" line="2365"/>
+        <location filename="../src/QtdSync.cpp" line="4719"/>
         <source>Destination</source>
         <translation type="unfinished"></translation>
     </message>
@@ -62,7 +54,7 @@
         <location filename="../forms/QtdSyncDlg.ui" line="873"/>
         <location filename="../forms/QtdSyncDlg.ui" line="896"/>
         <location filename="../forms/QtdSyncDlg.ui" line="926"/>
-        <location filename="../forms/QtdSyncDlg.ui" line="1404"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1430"/>
         <source>...</source>
         <translation></translation>
     </message>
@@ -96,28 +88,33 @@
         <source>&lt;b&gt;Note:&lt;/b&gt; These options only apply if they are &lt;b&gt;not overruled&lt;/b&gt; by the specific folder settings!</source>
         <translation type="unfinished"></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../forms/QtdSyncDlg.ui" line="1073"/>
         <source>&lt;b&gt;QtdSync&lt;/b&gt;&lt;br/&gt;&lt;small&gt;© 2012 by Thomas Döring&lt;/small&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1276"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1096"/>
+        <source>&lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=CHPFAG6RSLBGW&quot;&gt;&lt;img src=&quot;:/images/donate.png&quot; /&gt;&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../forms/QtdSyncDlg.ui" line="1302"/>
         <source>0.00kB/s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1305"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1331"/>
         <source>Process Priority</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1325"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1351"/>
         <source>Idle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1389"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1415"/>
         <source>High</source>
         <translation type="unfinished"></translation>
     </message>
@@ -127,39 +124,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1139"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1165"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1330"/>
+        <location filename="../src/QtdSync.cpp" line="1356"/>
         <source>Doing backup set %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1359"/>
+        <location filename="../src/QtdSync.cpp" line="1385"/>
         <source>Skip backup set %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1364"/>
+        <location filename="../src/QtdSync.cpp" line="1390"/>
         <source>Use backup destination &lt;b&gt;%1&lt;/b&gt; for every following undefined backup destination?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1425"/>
-        <location filename="../src/QtdSync.cpp" line="1482"/>
-        <location filename="../src/QtdSync.cpp" line="1493"/>
+        <location filename="../src/QtdSync.cpp" line="1451"/>
+        <location filename="../src/QtdSync.cpp" line="1508"/>
+        <location filename="../src/QtdSync.cpp" line="1519"/>
         <source>Fatal error creating directory %1!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3089"/>
+        <location filename="../src/QtdSync.cpp" line="3167"/>
         <source>Save %1 Backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3104"/>
+        <location filename="../src/QtdSync.cpp" line="3182"/>
         <source>File &lt;b&gt;%1&lt;/b&gt; could not be opened for writing!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -169,79 +166,79 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1225"/>
+        <location filename="../src/QtdSync.cpp" line="1251"/>
         <source>Backup set %1 invalid!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1348"/>
+        <location filename="../src/QtdSync.cpp" line="1374"/>
         <source>Abort Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1310"/>
-        <location filename="../src/QtdSync.cpp" line="1349"/>
+        <location filename="../src/QtdSync.cpp" line="1336"/>
+        <location filename="../src/QtdSync.cpp" line="1375"/>
         <source>Backup aborted by user.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1364"/>
+        <location filename="../src/QtdSync.cpp" line="1390"/>
         <source>Store destination</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1738"/>
+        <location filename="../src/QtdSync.cpp" line="1764"/>
         <source>Folder %1 does not exists. Skip!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2232"/>
+        <location filename="../src/QtdSync.cpp" line="2302"/>
         <source>(bound to the drive where QtdSync is running from)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2234"/>
+        <location filename="../src/QtdSync.cpp" line="2304"/>
         <source>(bound to the drive where the backup set file is located)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2238"/>
+        <location filename="../src/QtdSync.cpp" line="2308"/>
         <source>(bound to another computer)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2240"/>
+        <location filename="../src/QtdSync.cpp" line="2310"/>
         <source>(bound to the drive where %1 is located)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3104"/>
+        <location filename="../src/QtdSync.cpp" line="3182"/>
         <source>Error opening file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3671"/>
-        <location filename="../src/QtdSync.cpp" line="3834"/>
-        <location filename="../src/QtdSync.cpp" line="4156"/>
-        <location filename="../src/QtdSync.cpp" line="4188"/>
+        <location filename="../src/QtdSync.cpp" line="3753"/>
+        <location filename="../src/QtdSync.cpp" line="3916"/>
+        <location filename="../src/QtdSync.cpp" line="4238"/>
+        <location filename="../src/QtdSync.cpp" line="4270"/>
         <source>File not saved</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3671"/>
-        <location filename="../src/QtdSync.cpp" line="3834"/>
-        <location filename="../src/QtdSync.cpp" line="4156"/>
-        <location filename="../src/QtdSync.cpp" line="4188"/>
+        <location filename="../src/QtdSync.cpp" line="3753"/>
+        <location filename="../src/QtdSync.cpp" line="3916"/>
+        <location filename="../src/QtdSync.cpp" line="4238"/>
+        <location filename="../src/QtdSync.cpp" line="4270"/>
         <source>File &lt;b&gt;%1&lt;/b&gt; not saved! Discard file?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3842"/>
+        <location filename="../src/QtdSync.cpp" line="3924"/>
         <source>Open %1 Backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4519"/>
+        <location filename="../src/QtdSync.cpp" line="4601"/>
         <source>Select the folder to backup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -251,132 +248,131 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1189"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1215"/>
         <source>Backup set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1222"/>
-        <location filename="../src/QtdSync.cpp" line="4839"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1248"/>
+        <location filename="../src/QtdSync.cpp" line="4921"/>
         <source>Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4586"/>
+        <location filename="../src/QtdSync.cpp" line="4668"/>
         <source>this backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4587"/>
+        <location filename="../src/QtdSync.cpp" line="4669"/>
         <source>other backup set files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5129"/>
-        <location filename="../src/QtdSync.cpp" line="5135"/>
-        <location filename="../src/QtdSync.cpp" line="5140"/>
-        <location filename="../src/QtdSync.cpp" line="5163"/>
+        <location filename="../src/QtdSync.cpp" line="5211"/>
+        <location filename="../src/QtdSync.cpp" line="5217"/>
+        <location filename="../src/QtdSync.cpp" line="5222"/>
+        <location filename="../src/QtdSync.cpp" line="5245"/>
         <source>Remove Element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5129"/>
+        <location filename="../src/QtdSync.cpp" line="5211"/>
         <source>Remove the backup element &lt;b&gt;%1&lt;/b&gt;?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5414"/>
-        <location filename="../src/QtdSync.cpp" line="5416"/>
+        <location filename="../src/QtdSync.cpp" line="5496"/>
+        <location filename="../src/QtdSync.cpp" line="5498"/>
         <source>Backup schedule</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5414"/>
+        <location filename="../src/QtdSync.cpp" line="5496"/>
         <source>You have activated backup scheduling.&lt;br&gt;&lt;br&gt;To use that feature the &lt;b&gt;QtdSyncMonitor&lt;/b&gt; must be started now and on Windows startup.&lt;br&gt;&lt;br&gt;Therefor a registry entry was necessary. If you feel uncomfortable with that you can disable it under &lt;b&gt;Settings&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5803"/>
+        <location filename="../src/QtdSync.cpp" line="5885"/>
         <source>%1%2%3 ago</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5804"/>
+        <location filename="../src/QtdSync.cpp" line="5886"/>
         <source>%1 days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5805"/>
+        <location filename="../src/QtdSync.cpp" line="5887"/>
         <source>%1 hours</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5806"/>
+        <location filename="../src/QtdSync.cpp" line="5888"/>
         <source>%1 minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5912"/>
-        <location filename="../src/QtdSync.cpp" line="5932"/>
+        <location filename="../src/QtdSync.cpp" line="6014"/>
         <source>Update to v%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5931"/>
+        <location filename="../src/QtdSync.cpp" line="6013"/>
         <source>Click here to run update.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6025"/>
+        <location filename="../src/QtdSync.cpp" line="6107"/>
         <source>The server for the software update needs authentication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6041"/>
+        <location filename="../src/QtdSync.cpp" line="6123"/>
         <source>The proxy server for the software update needs authentication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="221"/>
-        <location filename="../src/QtdSync.cpp" line="3561"/>
-        <location filename="../src/QtdSync.cpp" line="6089"/>
-        <location filename="../src/QtdSync.cpp" line="6193"/>
-        <location filename="../src/QtdSync.cpp" line="6298"/>
+        <location filename="../src/QtdSync.cpp" line="243"/>
+        <location filename="../src/QtdSync.cpp" line="3643"/>
+        <location filename="../src/QtdSync.cpp" line="6171"/>
+        <location filename="../src/QtdSync.cpp" line="6275"/>
+        <location filename="../src/QtdSync.cpp" line="6380"/>
         <source>Not Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6105"/>
+        <location filename="../src/QtdSync.cpp" line="6187"/>
         <source>You have plugged in the backup set&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6105"/>
-        <location filename="../src/QtdSync.cpp" line="6107"/>
-        <location filename="../src/QtdSync.cpp" line="6109"/>
-        <location filename="../src/QtdSync.cpp" line="6111"/>
+        <location filename="../src/QtdSync.cpp" line="6187"/>
+        <location filename="../src/QtdSync.cpp" line="6189"/>
+        <location filename="../src/QtdSync.cpp" line="6191"/>
+        <location filename="../src/QtdSync.cpp" line="6193"/>
         <source>Do backup now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6107"/>
+        <location filename="../src/QtdSync.cpp" line="6189"/>
         <source>The backup set&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;is scheduled for startup backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6109"/>
+        <location filename="../src/QtdSync.cpp" line="6191"/>
         <source>The backup set&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;is scheduled for shutdown backup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6111"/>
+        <location filename="../src/QtdSync.cpp" line="6193"/>
         <source>The backup set&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;is scheduled for now.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3089"/>
-        <location filename="../src/QtdSync.cpp" line="3842"/>
-        <location filename="../src/QtdSync.cpp" line="4164"/>
+        <location filename="../src/QtdSync.cpp" line="3167"/>
+        <location filename="../src/QtdSync.cpp" line="3924"/>
+        <location filename="../src/QtdSync.cpp" line="4246"/>
         <source>Qtd-File (*.qtd)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -401,12 +397,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="859"/>
+        <location filename="../src/QtdSync.cpp" line="885"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="861"/>
+        <location filename="../src/QtdSync.cpp" line="887"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -416,149 +412,149 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1093"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1119"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1018"/>
+        <location filename="../src/QtdSync.cpp" line="1044"/>
         <source>rsync not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1018"/>
+        <location filename="../src/QtdSync.cpp" line="1044"/>
         <source>rsync was not found in the program path. Doing backups will &lt;b&gt;not&lt;/b&gt; work!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2483"/>
+        <location filename="../src/QtdSync.cpp" line="2553"/>
         <source>Folder not found!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2917"/>
-        <location filename="../src/QtdSync.cpp" line="3805"/>
+        <location filename="../src/QtdSync.cpp" line="2995"/>
+        <location filename="../src/QtdSync.cpp" line="3887"/>
         <source>the backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4589"/>
-        <location filename="../src/QtdSync.cpp" line="5804"/>
-        <location filename="../src/QtdSync.cpp" line="5805"/>
+        <location filename="../src/QtdSync.cpp" line="4671"/>
+        <location filename="../src/QtdSync.cpp" line="5886"/>
+        <location filename="../src/QtdSync.cpp" line="5887"/>
         <source>and</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2902"/>
-        <location filename="../src/QtdSync.cpp" line="3788"/>
+        <location filename="../src/QtdSync.cpp" line="2980"/>
+        <location filename="../src/QtdSync.cpp" line="3870"/>
         <source>Folder not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="990"/>
+        <location filename="../src/QtdSync.cpp" line="1016"/>
         <source>File not found!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="197"/>
+        <location filename="../src/QtdSync.cpp" line="219"/>
         <source>Open QtdSync...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="209"/>
-        <location filename="../src/QtdSync.cpp" line="221"/>
-        <location filename="../src/QtdSync.cpp" line="3561"/>
-        <location filename="../src/QtdSync.cpp" line="6089"/>
-        <location filename="../src/QtdSync.cpp" line="6193"/>
-        <location filename="../src/QtdSync.cpp" line="6298"/>
+        <location filename="../src/QtdSync.cpp" line="231"/>
+        <location filename="../src/QtdSync.cpp" line="243"/>
+        <location filename="../src/QtdSync.cpp" line="3643"/>
+        <location filename="../src/QtdSync.cpp" line="6171"/>
+        <location filename="../src/QtdSync.cpp" line="6275"/>
+        <location filename="../src/QtdSync.cpp" line="6380"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="217"/>
+        <location filename="../src/QtdSync.cpp" line="239"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1268"/>
+        <location filename="../src/QtdSync.cpp" line="1294"/>
         <source>Backup set %1 is bound to another computer!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1346"/>
-        <location filename="../src/QtdSync.cpp" line="5755"/>
+        <location filename="../src/QtdSync.cpp" line="1372"/>
+        <location filename="../src/QtdSync.cpp" line="5837"/>
         <source>QtdSync backup destination for &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1730"/>
+        <location filename="../src/QtdSync.cpp" line="1756"/>
         <source>Folder %1 is bound to another computer!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2236"/>
+        <location filename="../src/QtdSync.cpp" line="2306"/>
         <source>(bound to this computer)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2902"/>
-        <location filename="../src/QtdSync.cpp" line="3788"/>
+        <location filename="../src/QtdSync.cpp" line="2980"/>
+        <location filename="../src/QtdSync.cpp" line="3870"/>
         <source>Error on folder binding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2908"/>
-        <location filename="../src/QtdSync.cpp" line="3794"/>
+        <location filename="../src/QtdSync.cpp" line="2986"/>
+        <location filename="../src/QtdSync.cpp" line="3876"/>
         <source>Relocated folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2917"/>
+        <location filename="../src/QtdSync.cpp" line="2995"/>
         <source>You have bound the folder&lt;br&gt;&lt;center&gt;&lt;b&gt;%1&lt;/b&gt;&lt;/center&gt;&lt;br&gt;to the drive where %2 is located.&lt;br&gt;But this folder does not exist on the drive &lt;b&gt;%3:&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2919"/>
+        <location filename="../src/QtdSync.cpp" line="2997"/>
         <source>The folder&lt;br&gt;&lt;center&gt;&lt;b&gt;%1&lt;/b&gt;&lt;/center&gt;&lt;br&gt;does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4300"/>
+        <location filename="../src/QtdSync.cpp" line="4382"/>
         <source>Delete Backup set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4300"/>
+        <location filename="../src/QtdSync.cpp" line="4382"/>
         <source>Do you really want to delete the backup set&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/QtdSyncDlg.ui" line="341"/>
-        <location filename="../src/QtdSync.cpp" line="973"/>
+        <location filename="../src/QtdSync.cpp" line="999"/>
         <source>Last Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3236"/>
-        <location filename="../src/QtdSync.cpp" line="3237"/>
-        <location filename="../src/QtdSync.cpp" line="5793"/>
-        <location filename="../src/QtdSync.cpp" line="5839"/>
+        <location filename="../src/QtdSync.cpp" line="3318"/>
+        <location filename="../src/QtdSync.cpp" line="3319"/>
+        <location filename="../src/QtdSync.cpp" line="5875"/>
+        <location filename="../src/QtdSync.cpp" line="5921"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2988"/>
+        <location filename="../src/QtdSync.cpp" line="3066"/>
         <source>New backup set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2364"/>
+        <location filename="../src/QtdSync.cpp" line="2434"/>
         <source>except</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../forms/QtdSyncDlg.ui" line="532"/>
-        <location filename="../src/QtdSync.cpp" line="4326"/>
+        <location filename="../src/QtdSync.cpp" line="4408"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -568,12 +564,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6382"/>
+        <location filename="../src/QtdSync.cpp" line="6464"/>
         <source>Backups failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6382"/>
+        <location filename="../src/QtdSync.cpp" line="6464"/>
         <source>The backups
 
 - %1
@@ -582,26 +578,26 @@ failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1417"/>
+        <location filename="../src/QtdSync.cpp" line="1443"/>
         <source>Fatal error creating temporary directory %1!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1743"/>
-        <location filename="../src/QtdSync.cpp" line="2280"/>
-        <location filename="../src/QtdSync.cpp" line="3487"/>
-        <location filename="../src/QtdSync.cpp" line="4770"/>
+        <location filename="../src/QtdSync.cpp" line="1769"/>
+        <location filename="../src/QtdSync.cpp" line="2350"/>
+        <location filename="../src/QtdSync.cpp" line="3569"/>
+        <location filename="../src/QtdSync.cpp" line="4852"/>
         <source>Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4709"/>
-        <location filename="../src/QtdSync.cpp" line="4757"/>
+        <location filename="../src/QtdSync.cpp" line="4791"/>
+        <location filename="../src/QtdSync.cpp" line="4839"/>
         <source>Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4825"/>
+        <location filename="../src/QtdSync.cpp" line="4907"/>
         <source>Local path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -616,364 +612,364 @@ failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5738"/>
+        <location filename="../src/QtdSync.cpp" line="5820"/>
         <source>QtdSync Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1697"/>
+        <location filename="../src/QtdSync.cpp" line="1723"/>
         <source>Backup folder unknown!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4592"/>
+        <location filename="../src/QtdSync.cpp" line="4674"/>
         <source>The selected %1&lt;br&gt;&lt;center&gt;&lt;b&gt;%2&lt;/b&gt;&lt;/center&gt;&lt;br&gt; is located at the same drive as %3Do you want to bind it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4594"/>
+        <location filename="../src/QtdSync.cpp" line="4676"/>
         <source>Do you want to bind the %1 &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4871"/>
+        <location filename="../src/QtdSync.cpp" line="4953"/>
         <source>Select private key file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4871"/>
+        <location filename="../src/QtdSync.cpp" line="4953"/>
         <source>Keyfile (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4877"/>
-        <location filename="../src/QtdSync.cpp" line="4899"/>
-        <location filename="../src/QtdSync.cpp" line="4951"/>
+        <location filename="../src/QtdSync.cpp" line="4959"/>
+        <location filename="../src/QtdSync.cpp" line="4981"/>
+        <location filename="../src/QtdSync.cpp" line="5033"/>
         <source>Keyfile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4867"/>
-        <location filename="../src/QtdSync.cpp" line="4899"/>
-        <location filename="../src/QtdSync.cpp" line="4951"/>
+        <location filename="../src/QtdSync.cpp" line="4949"/>
+        <location filename="../src/QtdSync.cpp" line="4981"/>
+        <location filename="../src/QtdSync.cpp" line="5033"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4883"/>
-        <location filename="../src/QtdSync.cpp" line="4902"/>
-        <location filename="../src/QtdSync.cpp" line="4956"/>
+        <location filename="../src/QtdSync.cpp" line="4965"/>
+        <location filename="../src/QtdSync.cpp" line="4984"/>
+        <location filename="../src/QtdSync.cpp" line="5038"/>
         <source>Save keyfile name to Backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4883"/>
-        <location filename="../src/QtdSync.cpp" line="4902"/>
+        <location filename="../src/QtdSync.cpp" line="4965"/>
+        <location filename="../src/QtdSync.cpp" line="4984"/>
         <source>Save Password in Backup set file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5739"/>
+        <location filename="../src/QtdSync.cpp" line="5821"/>
         <source>Restoring a backup set will &lt;b&gt;overwrite&lt;/b&gt; and possibly&lt;br&gt;&lt;b&gt;delete&lt;/b&gt; existing files in the destination folder.&lt;br&gt;&lt;br&gt;Do you want to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5741"/>
+        <location filename="../src/QtdSync.cpp" line="5823"/>
         <source>Use the defined backup source as destination</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5742"/>
+        <location filename="../src/QtdSync.cpp" line="5824"/>
         <source>Define another destination folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1647"/>
-        <location filename="../src/QtdSync.cpp" line="1903"/>
-        <location filename="../src/QtdSync.cpp" line="1905"/>
-        <location filename="../src/QtdSync.cpp" line="1969"/>
+        <location filename="../src/QtdSync.cpp" line="1673"/>
+        <location filename="../src/QtdSync.cpp" line="1937"/>
+        <location filename="../src/QtdSync.cpp" line="1939"/>
+        <location filename="../src/QtdSync.cpp" line="2023"/>
         <source>User authentication failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1971"/>
+        <location filename="../src/QtdSync.cpp" line="2025"/>
         <source>Running rsync failed! Check server settings!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1985"/>
+        <location filename="../src/QtdSync.cpp" line="2039"/>
         <source>Running rsync failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="203"/>
+        <location filename="../src/QtdSync.cpp" line="225"/>
         <source>Open QtdSync Server...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="223"/>
-        <location filename="../src/QtdSync.cpp" line="3563"/>
-        <location filename="../src/QtdSync.cpp" line="6091"/>
-        <location filename="../src/QtdSync.cpp" line="6183"/>
-        <location filename="../src/QtdSync.cpp" line="6195"/>
-        <location filename="../src/QtdSync.cpp" line="6283"/>
-        <location filename="../src/QtdSync.cpp" line="6300"/>
+        <location filename="../src/QtdSync.cpp" line="245"/>
+        <location filename="../src/QtdSync.cpp" line="3645"/>
+        <location filename="../src/QtdSync.cpp" line="6173"/>
+        <location filename="../src/QtdSync.cpp" line="6265"/>
+        <location filename="../src/QtdSync.cpp" line="6277"/>
+        <location filename="../src/QtdSync.cpp" line="6365"/>
+        <location filename="../src/QtdSync.cpp" line="6382"/>
         <source>Running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="223"/>
-        <location filename="../src/QtdSync.cpp" line="3563"/>
-        <location filename="../src/QtdSync.cpp" line="6091"/>
-        <location filename="../src/QtdSync.cpp" line="6183"/>
-        <location filename="../src/QtdSync.cpp" line="6195"/>
-        <location filename="../src/QtdSync.cpp" line="6283"/>
-        <location filename="../src/QtdSync.cpp" line="6300"/>
+        <location filename="../src/QtdSync.cpp" line="245"/>
+        <location filename="../src/QtdSync.cpp" line="3645"/>
+        <location filename="../src/QtdSync.cpp" line="6173"/>
+        <location filename="../src/QtdSync.cpp" line="6265"/>
+        <location filename="../src/QtdSync.cpp" line="6277"/>
+        <location filename="../src/QtdSync.cpp" line="6365"/>
+        <location filename="../src/QtdSync.cpp" line="6382"/>
         <source>Stopped!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="902"/>
+        <location filename="../src/QtdSync.cpp" line="928"/>
         <source>Report a bug!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3519"/>
+        <location filename="../src/QtdSync.cpp" line="3601"/>
         <source>with allowed users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3551"/>
+        <location filename="../src/QtdSync.cpp" line="3633"/>
         <source>Stop Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3551"/>
+        <location filename="../src/QtdSync.cpp" line="3633"/>
         <source>Start Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3554"/>
+        <location filename="../src/QtdSync.cpp" line="3636"/>
         <source>Server is Running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3554"/>
+        <location filename="../src/QtdSync.cpp" line="3636"/>
         <source>Server is Stopped!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4104"/>
+        <location filename="../src/QtdSync.cpp" line="4186"/>
         <source>anonymous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4317"/>
+        <location filename="../src/QtdSync.cpp" line="4399"/>
         <source>QtdSync Server User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4346"/>
+        <location filename="../src/QtdSync.cpp" line="4428"/>
         <source>Adding User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4346"/>
+        <location filename="../src/QtdSync.cpp" line="4428"/>
         <source>User &lt;b&gt;%1&lt;/b&gt; already exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4372"/>
+        <location filename="../src/QtdSync.cpp" line="4454"/>
         <source>Delete User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4373"/>
+        <location filename="../src/QtdSync.cpp" line="4455"/>
         <source>Do you really want to delete the user &lt;b&gt;%1&lt;/b&gt;?&lt;br&gt;&lt;br&gt;It will be removed from every virtual directorys allowed users!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5163"/>
+        <location filename="../src/QtdSync.cpp" line="5245"/>
         <source>Remove the virtual directory &lt;b&gt;%1&lt;/b&gt;?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2124"/>
+        <location filename="../src/QtdSync.cpp" line="2194"/>
         <source>However, do you you want to mark this backup as valid anyways?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4607"/>
+        <location filename="../src/QtdSync.cpp" line="4689"/>
         <source>Disable Binding Options Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4607"/>
+        <location filename="../src/QtdSync.cpp" line="4689"/>
         <source>You disabled the Binding Options dialog.&lt;br&gt;&lt;br&gt;You can enable it under &lt;b&gt;Settings&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="106"/>
-        <location filename="../src/QtdSync.cpp" line="6014"/>
+        <location filename="../src/QtdSync.cpp" line="128"/>
+        <location filename="../src/QtdSync.cpp" line="6096"/>
         <source>Update failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="6014"/>
+        <location filename="../src/QtdSync.cpp" line="6096"/>
         <source>An error occured during update.&lt;br&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5450"/>
+        <location filename="../src/QtdSync.cpp" line="5532"/>
         <source>Select drive types...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>Floppy drives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>Local hard drives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>Removable drives (e.g. USB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>Network drives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>CD/DVD drives</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5451"/>
+        <location filename="../src/QtdSync.cpp" line="5533"/>
         <source>RamDisks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1518"/>
+        <location filename="../src/QtdSync.cpp" line="1544"/>
         <source>Doing backup preprocessing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="106"/>
+        <location filename="../src/QtdSync.cpp" line="128"/>
         <source>&lt;b&gt;The just performed update failed.&lt;/b&gt;&lt;br&gt;&lt;br&gt;You might want to download the full version from our &lt;a href=&quot;http://qtdtools.doering-thomas.de/page.php?seite=QtdSync&amp;sub=Download&amp;lang=%1&quot;&gt;Download&lt;/a&gt; page.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1524"/>
-        <location filename="../src/QtdSync.cpp" line="2041"/>
+        <location filename="../src/QtdSync.cpp" line="1550"/>
+        <location filename="../src/QtdSync.cpp" line="2111"/>
         <source>%1 not found!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1526"/>
-        <location filename="../src/QtdSync.cpp" line="2043"/>
+        <location filename="../src/QtdSync.cpp" line="1552"/>
+        <location filename="../src/QtdSync.cpp" line="2113"/>
         <source>File not found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1527"/>
+        <location filename="../src/QtdSync.cpp" line="1553"/>
         <source>The backup set preprocessing executable&lt;br&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;does not exists!&lt;br&gt;&lt;br&gt;Abort backup?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1534"/>
+        <location filename="../src/QtdSync.cpp" line="1560"/>
         <source>Backup aborted!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1541"/>
-        <location filename="../src/QtdSync.cpp" line="2046"/>
+        <location filename="../src/QtdSync.cpp" line="1567"/>
+        <location filename="../src/QtdSync.cpp" line="2116"/>
         <source>%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2037"/>
+        <location filename="../src/QtdSync.cpp" line="2107"/>
         <source>Doing backup postprocessing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2043"/>
+        <location filename="../src/QtdSync.cpp" line="2113"/>
         <source>The backup set postprocessing executable&lt;br&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;does not exists!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2061"/>
+        <location filename="../src/QtdSync.cpp" line="2131"/>
         <source>Postprocessing error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2061"/>
+        <location filename="../src/QtdSync.cpp" line="2131"/>
         <source>The postprocessing returned with an error. %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2319"/>
-        <location filename="../src/QtdSync.cpp" line="3873"/>
+        <location filename="../src/QtdSync.cpp" line="2389"/>
+        <location filename="../src/QtdSync.cpp" line="3955"/>
         <source>Backup Set Preprocessing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2333"/>
-        <location filename="../src/QtdSync.cpp" line="2396"/>
+        <location filename="../src/QtdSync.cpp" line="2403"/>
+        <location filename="../src/QtdSync.cpp" line="2466"/>
         <source>with the arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2382"/>
-        <location filename="../src/QtdSync.cpp" line="3875"/>
+        <location filename="../src/QtdSync.cpp" line="2452"/>
+        <location filename="../src/QtdSync.cpp" line="3957"/>
         <source>Backup Set Postprocessing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3854"/>
-        <location filename="../src/QtdSync.cpp" line="4985"/>
-        <location filename="../src/QtdSync.cpp" line="5002"/>
+        <location filename="../src/QtdSync.cpp" line="3936"/>
+        <location filename="../src/QtdSync.cpp" line="5067"/>
+        <location filename="../src/QtdSync.cpp" line="5084"/>
         <source>Select Executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3884"/>
+        <location filename="../src/QtdSync.cpp" line="3966"/>
         <source>Execute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3885"/>
+        <location filename="../src/QtdSync.cpp" line="3967"/>
         <source>Arguments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4568"/>
+        <location filename="../src/QtdSync.cpp" line="4650"/>
         <source>Bind File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1539"/>
-        <location filename="../src/QtdSync.cpp" line="4842"/>
+        <location filename="../src/QtdSync.cpp" line="1565"/>
+        <location filename="../src/QtdSync.cpp" line="4924"/>
         <source>Preprocessing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4845"/>
+        <location filename="../src/QtdSync.cpp" line="4927"/>
         <source>Postprocessing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5135"/>
+        <location filename="../src/QtdSync.cpp" line="5217"/>
         <source>Remove the backup set preprocessing step?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5140"/>
+        <location filename="../src/QtdSync.cpp" line="5222"/>
         <source>Remove the backup set postprocessing step?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1008,349 +1004,348 @@ failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncDlg.ui" line="1116"/>
+        <location filename="../forms/QtdSyncDlg.ui" line="1142"/>
         <source>Save &amp;&amp; Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="205"/>
+        <location filename="../src/QtdSync.cpp" line="227"/>
         <source>Abort current backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="860"/>
+        <location filename="../src/QtdSync.cpp" line="886"/>
         <source>New, as copy of...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1067"/>
+        <location filename="../src/QtdSync.cpp" line="1093"/>
         <source>Last successfull Backup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1232"/>
+        <location filename="../src/QtdSync.cpp" line="1258"/>
         <source>Dry run not allowed for remote backups (%1)!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1300"/>
+        <location filename="../src/QtdSync.cpp" line="1326"/>
         <source>User settings invalid (empty password)!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1329"/>
+        <location filename="../src/QtdSync.cpp" line="1355"/>
         <source>Restoring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1367"/>
+        <location filename="../src/QtdSync.cpp" line="1393"/>
         <source>Backup destination %1 does not exist!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1567"/>
+        <location filename="../src/QtdSync.cpp" line="1593"/>
         <source>Preprocessing returned with an error:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1846"/>
+        <location filename="../src/QtdSync.cpp" line="1880"/>
         <source>Folder creation of %1 failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1963"/>
+        <location filename="../src/QtdSync.cpp" line="2017"/>
         <source>Backup canceled!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2087"/>
+        <location filename="../src/QtdSync.cpp" line="2157"/>
         <source>Report mail sent to %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2123"/>
+        <location filename="../src/QtdSync.cpp" line="2193"/>
         <source>The Backup &lt;b&gt;%1&lt;/b&gt; returned with an error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3278"/>
+        <location filename="../src/QtdSync.cpp" line="3360"/>
         <source>%1 kB free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3285"/>
+        <location filename="../src/QtdSync.cpp" line="3367"/>
         <source>%1 MB free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3288"/>
+        <location filename="../src/QtdSync.cpp" line="3370"/>
         <source>%1 GB free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3291"/>
+        <location filename="../src/QtdSync.cpp" line="3373"/>
         <source>%1 TB free</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3820"/>
-        <location filename="../src/QtdSync.cpp" line="4628"/>
+        <location filename="../src/QtdSync.cpp" line="3902"/>
+        <location filename="../src/QtdSync.cpp" line="4710"/>
         <source>Select the backup destination folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3832"/>
-        <location filename="../src/QtdSync.cpp" line="4154"/>
-        <location filename="../src/QtdSync.cpp" line="4186"/>
+        <location filename="../src/QtdSync.cpp" line="3914"/>
+        <location filename="../src/QtdSync.cpp" line="4236"/>
+        <location filename="../src/QtdSync.cpp" line="4268"/>
         <source>Backup set changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3832"/>
-        <location filename="../src/QtdSync.cpp" line="4154"/>
-        <location filename="../src/QtdSync.cpp" line="4186"/>
+        <location filename="../src/QtdSync.cpp" line="3914"/>
+        <location filename="../src/QtdSync.cpp" line="4236"/>
+        <location filename="../src/QtdSync.cpp" line="4268"/>
         <source>The current backup set has been changed! Do you want to save it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3854"/>
-        <location filename="../src/QtdSync.cpp" line="4985"/>
-        <location filename="../src/QtdSync.cpp" line="5002"/>
+        <location filename="../src/QtdSync.cpp" line="3936"/>
+        <location filename="../src/QtdSync.cpp" line="5067"/>
+        <location filename="../src/QtdSync.cpp" line="5084"/>
         <source>Executables (*.exe *.com);;Scripts (*.bat *.cmd *.sh);;Any (*.*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4164"/>
+        <location filename="../src/QtdSync.cpp" line="4246"/>
         <source>Create %1 Backup set copy of...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4169"/>
+        <location filename="../src/QtdSync.cpp" line="4251"/>
         <source>Copy of %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5222"/>
-        <location filename="../src/QtdSync.cpp" line="5342"/>
+        <location filename="../src/QtdSync.cpp" line="5304"/>
+        <location filename="../src/QtdSync.cpp" line="5424"/>
         <source>E-Mail invalid?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5222"/>
+        <location filename="../src/QtdSync.cpp" line="5304"/>
         <source>The provided mail address&lt;br&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;seems to be invalid.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5238"/>
+        <location filename="../src/QtdSync.cpp" line="5320"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5241"/>
+        <location filename="../src/QtdSync.cpp" line="5323"/>
         <source>Mail delivered successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5244"/>
+        <location filename="../src/QtdSync.cpp" line="5326"/>
         <source>Send Mail. Please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5255"/>
+        <location filename="../src/QtdSync.cpp" line="5337"/>
         <source>SMTP-Server undefined!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5258"/>
+        <location filename="../src/QtdSync.cpp" line="5340"/>
         <source>Receiver address missing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5261"/>
+        <location filename="../src/QtdSync.cpp" line="5343"/>
         <source>Sender address missing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5275"/>
+        <location filename="../src/QtdSync.cpp" line="5357"/>
         <source>Connecting to SMTP failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5288"/>
+        <location filename="../src/QtdSync.cpp" line="5370"/>
         <source>Protocol error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5292"/>
+        <location filename="../src/QtdSync.cpp" line="5374"/>
         <source>The server denied access for the given user!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5296"/>
+        <location filename="../src/QtdSync.cpp" line="5378"/>
         <source>Unknown error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5303"/>
-        <location filename="../src/QtdSync.cpp" line="5305"/>
+        <location filename="../src/QtdSync.cpp" line="5385"/>
+        <location filename="../src/QtdSync.cpp" line="5387"/>
         <source>Mail Test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5342"/>
+        <location filename="../src/QtdSync.cpp" line="5424"/>
         <source>The provided mail address&lt;br&gt;&lt;br&gt;&lt;b&gt;%1&lt;/b&gt;&lt;br&gt;&lt;br&gt;seems to be invalid. Do you want to recheck it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5477"/>
+        <location filename="../src/QtdSync.cpp" line="5559"/>
         <source>&lt;Auto&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5516"/>
-        <location filename="../src/QtdSync.cpp" line="5522"/>
+        <location filename="../src/QtdSync.cpp" line="5598"/>
+        <location filename="../src/QtdSync.cpp" line="5604"/>
         <source>Language changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5516"/>
-        <location filename="../src/QtdSync.cpp" line="5522"/>
+        <location filename="../src/QtdSync.cpp" line="5598"/>
+        <location filename="../src/QtdSync.cpp" line="5604"/>
         <source>You changed the language settings. Please restart QtdSync.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5608"/>
+        <location filename="../src/QtdSync.cpp" line="5690"/>
         <source>QtdSync Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5608"/>
+        <location filename="../src/QtdSync.cpp" line="5690"/>
         <source>Do you really wanna quit without saving?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="863"/>
+        <location filename="../src/QtdSync.cpp" line="889"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="864"/>
+        <location filename="../src/QtdSync.cpp" line="890"/>
         <source>Save as...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1580"/>
-        <location filename="../src/QtdSync.cpp" line="1582"/>
-        <location filename="../src/QtdSync.cpp" line="4770"/>
+        <location filename="../src/QtdSync.cpp" line="1606"/>
+        <location filename="../src/QtdSync.cpp" line="1608"/>
+        <location filename="../src/QtdSync.cpp" line="4852"/>
         <source>Connecting to %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2280"/>
-        <location filename="../src/QtdSync.cpp" line="3487"/>
+        <location filename="../src/QtdSync.cpp" line="2350"/>
+        <location filename="../src/QtdSync.cpp" line="3569"/>
         <source>Updating.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4809"/>
+        <location filename="../src/QtdSync.cpp" line="4891"/>
         <source>Please enter the backup path here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4827"/>
+        <location filename="../src/QtdSync.cpp" line="4909"/>
         <source>Remote rsync path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4828"/>
+        <location filename="../src/QtdSync.cpp" line="4910"/>
         <source>Remote SSH path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1207"/>
+        <location filename="../src/QtdSync.cpp" line="1233"/>
         <source>Initializing backup...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1332"/>
+        <location filename="../src/QtdSync.cpp" line="1358"/>
         <source>Initializing backup for %1...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="214"/>
+        <location filename="../src/QtdSync.cpp" line="236"/>
         <source>Check for update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2906"/>
-        <location filename="../src/QtdSync.cpp" line="3792"/>
+        <location filename="../src/QtdSync.cpp" line="2984"/>
+        <location filename="../src/QtdSync.cpp" line="3874"/>
         <source>Ignore this error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3805"/>
+        <location filename="../src/QtdSync.cpp" line="3887"/>
         <source>You have bound the backup destination folder&lt;br&gt;&lt;center&gt;&lt;b&gt;%1&lt;/b&gt;&lt;/center&gt;&lt;br&gt;to the drive where %2 is located.&lt;br&gt;But this folder does not exist on the drive &lt;b&gt;%3:&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3807"/>
+        <location filename="../src/QtdSync.cpp" line="3889"/>
         <source>The backup destination folder&lt;br&gt;&lt;center&gt;&lt;b&gt;%1&lt;/b&gt;&lt;/center&gt;&lt;br&gt;does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5643"/>
+        <location filename="../src/QtdSync.cpp" line="5725"/>
         <source>QtdSync Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5644"/>
+        <location filename="../src/QtdSync.cpp" line="5726"/>
         <source>To apply the update QtdSync needs to be restarted now.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5645"/>
+        <location filename="../src/QtdSync.cpp" line="5727"/>
         <source>Restart now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5647"/>
+        <location filename="../src/QtdSync.cpp" line="5729"/>
         <source>Abort update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3506"/>
+        <location filename="../src/QtdSync.cpp" line="3588"/>
         <source> (read only!)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="106"/>
+        <location filename="../src/QtdSync.cpp" line="128"/>
         <source>en</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="2693"/>
+        <location filename="../src/QtdSync.cpp" line="2767"/>
         <source>Folder %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="94"/>
-        <location filename="../src/QtdSync.cpp" line="4046"/>
+        <location filename="../src/QtdSync.cpp" line="4128"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4046"/>
+        <location filename="../src/QtdSync.cpp" line="4128"/>
         <source>Please define a &lt;b&gt;Name&lt;/b&gt;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4860"/>
-        <location filename="../src/QtdSync.cpp" line="4865"/>
+        <location filename="../src/QtdSync.cpp" line="4942"/>
+        <location filename="../src/QtdSync.cpp" line="4947"/>
         <source>Set Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4861"/>
+        <location filename="../src/QtdSync.cpp" line="4943"/>
         <source>Browse for Keyfile</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1375,23 +1370,23 @@ failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1244"/>
+        <location filename="../src/QtdSync.cpp" line="1270"/>
         <source>The Backup Set %1 is already currently performed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3627"/>
-        <location filename="../src/QtdSync.cpp" line="3965"/>
+        <location filename="../src/QtdSync.cpp" line="3709"/>
+        <location filename="../src/QtdSync.cpp" line="4047"/>
         <source>Subfolder disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3627"/>
+        <location filename="../src/QtdSync.cpp" line="3709"/>
         <source>You decided NOT to backup into a subfolder!&lt;br&gt;&lt;br&gt;The backup of another backup set into the same backup destination will likely &lt;b&gt;corrupt your backup&lt;/b&gt;!&lt;br&gt;Please make sure to use your backup destination only for &lt;b&gt;this&lt;/b&gt; backup set!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="3965"/>
+        <location filename="../src/QtdSync.cpp" line="4047"/>
         <source>You decided NOT to backup into a subfolder!&lt;br&gt;&lt;br&gt;This is only allowed if you have only one folder to backup in your backup set.&lt;br&gt;&lt;b&gt;If you add another folder this will be enabled again!&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1411,42 +1406,37 @@ failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1555"/>
+        <location filename="../src/QtdSync.cpp" line="1581"/>
         <source>The preprocessing returned with an error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1556"/>
+        <location filename="../src/QtdSync.cpp" line="1582"/>
         <source>Do you want to abort the backup?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1239"/>
+        <location filename="../src/QtdSync.cpp" line="1265"/>
         <source>Currently backing up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1239"/>
+        <location filename="../src/QtdSync.cpp" line="1265"/>
         <source>The backup set &lt;b&gt;%1&lt;/b&gt; is marked as &lt;i&gt;currently backing up&lt;/i&gt;!&lt;br&gt;&lt;br&gt;It is likely that another QtdSync instance (e.g. QtdSync Monitor) is currently performing a backup.&lt;br&gt;&lt;br&gt;However, do you want to force QtdSync to backup now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="1650"/>
+        <location filename="../src/QtdSync.cpp" line="1676"/>
         <source>Permission denied!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="94"/>
-        <source>QtdSync seems &lt;b&gt;not&lt;/b&gt; to have writing access to its application dir path&lt;br&gt;%1&lt;br&gt;&lt;br&gt;In order to function properly you need to grant QtdSync access.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/QtdSync.cpp" line="5416"/>
+        <location filename="../src/QtdSync.cpp" line="5498"/>
         <source>You have activated backup scheduling.&lt;br&gt;&lt;br&gt;To use that feature the &lt;b&gt;QtdSyncMonitor&lt;/b&gt; must be started now and on Linux startup. Therefor it is necessary to grant QtdSync root previleges to setup the needed startup script.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="5463"/>
+        <location filename="../src/QtdSync.cpp" line="5545"/>
         <source>Linux Startup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1501,7 +1491,7 @@ p, li { white-space: pre-wrap; }
         <source>...</source>
         <translation></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../forms/QtdSyncAboutDlg.ui" line="249"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1983,104 +1973,104 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QtdSyncServer</name>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="17"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="23"/>
         <source>QtdSync Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="34"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="40"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
-    <message utf8="true">
-        <location filename="../forms/QtdSyncServerDlg.ui" line="44"/>
+    <message>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="50"/>
         <source>© 2009 Thomas Döring</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="74"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="80"/>
         <source>Start Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="136"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="142"/>
         <source>Server is Stopped!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="165"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="168"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="171"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="174"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="191"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="194"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="197"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="200"/>
         <source>About QtdSync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="227"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="233"/>
         <source>Virtual Directories</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="261"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="267"/>
         <source>Elements</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="280"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="286"/>
         <source>Add Virtual Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="283"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="306"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="329"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="401"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="424"/>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="447"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="289"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="312"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="335"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="405"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="428"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="451"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="303"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="309"/>
         <source>Remove Virtual Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="326"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="332"/>
         <source>Edit Virtual Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="375"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="379"/>
         <source>Available Users</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="398"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="402"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="421"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="425"/>
         <source>Remove User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="444"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="448"/>
         <source>Edit User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="472"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="476"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../forms/QtdSyncServerDlg.ui" line="534"/>
+        <location filename="../forms/QtdSyncServerDlg.ui" line="538"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2196,12 +2186,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QtdSyncSpecial</name>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4564"/>
+        <location filename="../src/QtdSync.cpp" line="4646"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/QtdSync.cpp" line="4564"/>
+        <location filename="../src/QtdSync.cpp" line="4646"/>
         <source>Folder</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2218,7 +2208,7 @@ p, li { white-space: pre-wrap; }
         <source>TextLabel</source>
         <translation></translation>
     </message>
-    <message utf8="true">
+    <message>
         <location filename="../forms/QtdSyncStartupDlg.ui" line="89"/>
         <source>© 2009 Thomas Döring</source>
         <translation></translation>
@@ -2245,13 +2235,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../forms/QtdSyncStartupDlg.ui" line="358"/>
-        <location filename="../src/QtdSync.cpp" line="5681"/>
         <source>Delete selected Backup set</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/QtdSync.cpp" line="5678"/>
-        <source>Remove selected Backup set from list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2332,49 +2316,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../forms/QtdSyncVDirConfigDlg.ui" line="209"/>
         <source>...</source>
         <translation></translation>
-    </message>
-</context>
-<context>
-    <name>QtdUpdateClient</name>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="53"/>
-        <source>Update Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="609"/>
-        <source>No update available.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="619"/>
-        <source>Fatal error creating temorary folders.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="675"/>
-        <source>Destination filepath &lt;i&gt;%1&lt;/i&gt; not allowed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="683"/>
-        <source>Temporary file for &lt;i&gt;%1&lt;/i&gt; could not be created.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="704"/>
-        <source>Deletion of files in &lt;i&gt;%1&lt;/i&gt; is not allowed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="720"/>
-        <source>Starting &lt;i&gt;%1&lt;/i&gt; is not allowed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="k:/private/Shared/QtdClasses/QtdUpdateClient.cpp" line="870"/>
-        <source>%1 not found!</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
