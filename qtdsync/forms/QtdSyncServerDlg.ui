@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>492</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
   </property>
   <property name="acceptDrops">
    <bool>true</bool>
@@ -356,8 +362,6 @@
        </layout>
       </item>
      </layout>
-     <zorder>m_pTW_Folders</zorder>
-     <zorder></zorder>
     </widget>
    </item>
    <item>
