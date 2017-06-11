@@ -1,2 +1,3 @@
 /qtdsync/include/ui_*.h
 /qtdsync/Makefile*
+/build-QtdSync-*
