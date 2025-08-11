@@ -7,10 +7,10 @@
 #include <QtCore/qt_windows.h>
 
 // Blur behind data structures
-#define DWM_BB_ENABLE                 0x00000001  // fEnable has been specified
-#define DWM_BB_BLURREGION             0x00000002  // hRgnBlur has been specified
-#define DWM_BB_TRANSITIONONMAXIMIZED  0x00000004  // fTransitionOnMaximized has been specified
-#define WM_DWMCOMPOSITIONCHANGED        0x031E    // Composition changed window message
+#define DWM_BB_ENABLE 0x00000001                // fEnable has been specified
+#define DWM_BB_BLURREGION 0x00000002            // hRgnBlur has been specified
+#define DWM_BB_TRANSITIONONMAXIMIZED 0x00000004 // fTransitionOnMaximized has been specified
+#define WM_DWMCOMPOSITIONCHANGED 0x031E         // Composition changed window message
 
 //----------------------------------------------------------------------------
 typedef struct _DWM_BLURBEHIND
@@ -30,24 +30,24 @@ typedef struct _MARGINS
 } MARGINS, *PMARGINS;
 
 //----------------------------------------------------------------------------
-typedef HRESULT (WINAPI *PtrDwmIsCompositionEnabled)(BOOL* pfEnabled);
-typedef HRESULT (WINAPI *PtrDwmExtendFrameIntoClientArea)(HWND hWnd, const MARGINS* pMarInset);
-typedef HRESULT (WINAPI *PtrDwmEnableBlurBehindWindow)(HWND hWnd, const DWM_BLURBEHIND* pBlurBehind);
-typedef HRESULT (WINAPI *PtrDwmGetColorizationColor)(DWORD *pcrColorization, BOOL *pfOpaqueBlend);
+typedef HRESULT(WINAPI *PtrDwmIsCompositionEnabled)(BOOL *pfEnabled);
+typedef HRESULT(WINAPI *PtrDwmExtendFrameIntoClientArea)(HWND hWnd, const MARGINS *pMarInset);
+typedef HRESULT(WINAPI *PtrDwmEnableBlurBehindWindow)(HWND hWnd, const DWM_BLURBEHIND *pBlurBehind);
+typedef HRESULT(WINAPI *PtrDwmGetColorizationColor)(DWORD *pcrColorization, BOOL *pfOpaqueBlend);
 
-static PtrDwmIsCompositionEnabled pDwmIsCompositionEnabled= 0;
+static PtrDwmIsCompositionEnabled pDwmIsCompositionEnabled = 0;
 static PtrDwmEnableBlurBehindWindow pDwmEnableBlurBehindWindow = 0;
 static PtrDwmExtendFrameIntoClientArea pDwmExtendFrameIntoClientArea = 0;
 static PtrDwmGetColorizationColor pDwmGetColorizationColor = 0;
 //----------------------------------------------------------------------------
 
-
 //----------------------------------------------------------------------------
 static bool resolveLibs()
 {
-    if (!pDwmIsCompositionEnabled) {
+    if (!pDwmIsCompositionEnabled)
+    {
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
-        pDwmIsCompositionEnabled =(PtrDwmIsCompositionEnabled)dwmLib.resolve("DwmIsCompositionEnabled");
+        pDwmIsCompositionEnabled = (PtrDwmIsCompositionEnabled)dwmLib.resolve("DwmIsCompositionEnabled");
         pDwmExtendFrameIntoClientArea = (PtrDwmExtendFrameIntoClientArea)dwmLib.resolve("DwmExtendFrameIntoClientArea");
         pDwmEnableBlurBehindWindow = (PtrDwmEnableBlurBehindWindow)dwmLib.resolve("DwmEnableBlurBehindWindow");
         pDwmGetColorizationColor = (PtrDwmGetColorizationColor)dwmLib.resolve("DwmGetColorizationColor");
@@ -59,20 +59,21 @@ static bool resolveLibs()
 
 //----------------------------------------------------------------------------
 /*!
-  * Chekcs and returns true if Windows DWM composition
-  * is currently enabled on the system.
-  *
-  * To get live notification on the availability of
-  * this feature, you will currently have to
-  * reimplement winEvent() on your widget and listen
-  * for the WM_DWMCOMPOSITIONCHANGED event to occur.
-  *
-  */
+ * Chekcs and returns true if Windows DWM composition
+ * is currently enabled on the system.
+ *
+ * To get live notification on the availability of
+ * this feature, you will currently have to
+ * reimplement winEvent() on your widget and listen
+ * for the WM_DWMCOMPOSITIONCHANGED event to occur.
+ *
+ */
 //----------------------------------------------------------------------------
 bool QtWin::isCompositionEnabled()
 {
 #ifdef Q_WS_WIN
-    if (resolveLibs()) {
+    if (resolveLibs())
+    {
         HRESULT hr = S_OK;
         BOOL isEnabled = false;
         hr = pDwmIsCompositionEnabled(&isEnabled);
@@ -85,18 +86,19 @@ bool QtWin::isCompositionEnabled()
 
 //----------------------------------------------------------------------------
 /*!
-  * Enables Blur behind on a Widget.
-  *
-  * \a enable tells if the blur should be enabled or not
-  */
+ * Enables Blur behind on a Widget.
+ *
+ * \a enable tells if the blur should be enabled or not
+ */
 //----------------------------------------------------------------------------
 bool QtWin::enableBlurBehindWindow(QWidget *widget, bool enable)
 {
     Q_ASSERT(widget);
     bool result = false;
 #ifdef Q_WS_WIN
-# if QT_VERSION >= 0x040500
-    if (resolveLibs()) {
+#if QT_VERSION >= 0x040500
+    if (resolveLibs())
+    {
         DWM_BLURBEHIND bb = {0};
         HRESULT hr = S_OK;
         bb.fEnable = enable;
@@ -105,29 +107,30 @@ bool QtWin::enableBlurBehindWindow(QWidget *widget, bool enable)
         widget->setAttribute(Qt::WA_TranslucentBackground, enable);
         widget->setAttribute(Qt::WA_NoSystemBackground, enable);
         hr = pDwmEnableBlurBehindWindow(widget->winId(), &bb);
-        if (SUCCEEDED(hr)) {
+        if (SUCCEEDED(hr))
+        {
             result = true;
             windowNotifier()->addWidget(widget);
         }
     }
-# endif
+#endif
 #endif
     return result;
 }
 
 //----------------------------------------------------------------------------
 /*!
-  * ExtendFrameIntoClientArea.
-  *
-  * This controls the rendering of the frame inside the window.
-  * Note that passing margins of -1 (the default value) will completely
-  * remove the frame from the window.
-  *
-  * \note you should not call enableBlurBehindWindow before calling
-  *       this functions
-  *
-  * \a enable tells if the blur should be enabled or not
-  */
+ * ExtendFrameIntoClientArea.
+ *
+ * This controls the rendering of the frame inside the window.
+ * Note that passing margins of -1 (the default value) will completely
+ * remove the frame from the window.
+ *
+ * \note you should not call enableBlurBehindWindow before calling
+ *       this functions
+ *
+ * \a enable tells if the blur should be enabled or not
+ */
 //----------------------------------------------------------------------------
 bool QtWin::extendFrameIntoClientArea(QWidget *widget, int left, int top, int right, int bottom)
 {
@@ -140,36 +143,39 @@ bool QtWin::extendFrameIntoClientArea(QWidget *widget, int left, int top, int ri
 
     bool result = false;
 #ifdef Q_WS_WIN
-# if QT_VERSION >= 0x040500
-    if (resolveLibs()) {
+#if QT_VERSION >= 0x040500
+    if (resolveLibs())
+    {
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
         HRESULT hr = S_OK;
         MARGINS m = {left, top, right, bottom};
         hr = pDwmExtendFrameIntoClientArea(widget->winId(), &m);
-        if (SUCCEEDED(hr)) {
+        if (SUCCEEDED(hr))
+        {
             result = true;
             windowNotifier()->addWidget(widget);
         }
         widget->setAttribute(Qt::WA_TranslucentBackground, result);
     }
-# endif
+#endif
 #endif
     return result;
 }
 
 //----------------------------------------------------------------------------
 /*!
-  * Returns the current colorizationColor for the window.
-  *
-  * \a enable tells if the blur should be enabled or not
-  */
+ * Returns the current colorizationColor for the window.
+ *
+ * \a enable tells if the blur should be enabled or not
+ */
 //----------------------------------------------------------------------------
 QColor QtWin::colorizatinColor()
 {
     QColor resultColor = QApplication::palette().window().color();
 
 #ifdef Q_WS_WIN
-    if (resolveLibs()) {
+    if (resolveLibs())
+    {
         DWORD color = 0;
         BOOL opaque = FALSE;
         QLibrary dwmLib(QString::fromAscii("dwmapi"));
@@ -195,9 +201,10 @@ WindowNotifier *QtWin::windowNotifier()
 //----------------------------------------------------------------------------
 void WindowNotifier::addWidget(QWidget *widget)
 {
-    if (!widgets.contains(widget)) {
-        connect(widget, SIGNAL(destroyed(QObject*)), this, SLOT(widgetDestroyed(QObject*)));
-        widgets.append(widget); 
+    if (!widgets.contains(widget))
+    {
+        connect(widget, SIGNAL(destroyed(QObject *)), this, SLOT(widgetDestroyed(QObject *)));
+        widgets.append(widget);
     }
 }
 
@@ -205,10 +212,13 @@ void WindowNotifier::addWidget(QWidget *widget)
 //----------------------------------------------------------------------------
 bool WindowNotifier::winEvent(MSG *message, long *result)
 {
-    if (message && message->message == WM_DWMCOMPOSITIONCHANGED) {
+    if (message && message->message == WM_DWMCOMPOSITIONCHANGED)
+    {
         bool compositionEnabled = QtWin::isCompositionEnabled();
-        foreach(QWidget * widget, widgets) {
-            if (widget) {
+        foreach (QWidget *widget, widgets)
+        {
+            if (widget)
+            {
                 widget->setAttribute(Qt::WA_NoSystemBackground, compositionEnabled);
             }
             widget->update();
@@ -218,15 +228,15 @@ bool WindowNotifier::winEvent(MSG *message, long *result)
 }
 
 //----------------------------------------------------------------------------
-void WindowNotifier::widgetDestroyed(QObject* obj)
+void WindowNotifier::widgetDestroyed(QObject *obj)
 {
-    removeWidget(qobject_cast<QWidget*>(obj));
+    removeWidget(qobject_cast<QWidget *>(obj));
 }
 #endif
 
 //============================================================================
-QtdTreeWidget::QtdTreeWidget(QWidget* parent)
-: QTreeWidget(parent)
+QtdTreeWidget::QtdTreeWidget(QWidget *parent)
+    : QTreeWidget(parent)
 {
     setAcceptDrops(true);
 }
@@ -248,17 +258,25 @@ void QtdTreeWidget::dropEvent(QDropEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();
 
-    if (mimeData->hasImage()) {
+    if (mimeData->hasImage())
+    {
         emit dataImageDataDropped(qvariant_cast<QPixmap>(mimeData->imageData()));
-    } else if (mimeData->hasHtml()) {
+    }
+    else if (mimeData->hasHtml())
+    {
         emit dataHtmlDropped(mimeData->html());
-    } else if (mimeData->hasText()) {
+    }
+    else if (mimeData->hasText())
+    {
         emit dataTextDropped(mimeData->text());
-    } else if (mimeData->hasUrls()) {
+    }
+    else if (mimeData->hasUrls())
+    {
         QList<QUrl> urlList = mimeData->urls();
         QStringList urls;
 
-        for (int i = 0; i < urlList.size() && i < 32; ++i) {
+        for (int i = 0; i < urlList.size() && i < 32; ++i)
+        {
             QString url = urlList.at(i).path();
             urls << url;
         }
@@ -275,10 +293,8 @@ void QtdTreeWidget::dragLeaveEvent(QDragLeaveEvent *event)
 }
 
 //============================================================================
-QtdLineEdit::QtdLineEdit(QWidget* parent)
-: QLineEdit(parent)
- ,c(0L)
- ,wordBoundary(" ")
+QtdLineEdit::QtdLineEdit(QWidget *parent)
+    : QLineEdit(parent), c(0L), wordBoundary(" ")
 {
     setAcceptDrops(true);
 }
@@ -292,22 +308,24 @@ void QtdLineEdit::setCompleterWordBoundary(QString wbd)
 //----------------------------------------------------------------------------
 void QtdLineEdit::setCompleter(QCompleter *completer)
 {
-    if (c) {
+    if (c)
+    {
         QObject::disconnect(c, 0, this, 0);
     }
 
     c = completer;
-    if (!c) {
+    if (!c)
+    {
         return;
     }
 
     c->setWidget(this);
     c->setCompletionMode(QCompleter::PopupCompletion);
-    //c->setCaseSensitivity(Qt::CaseInsensitive);
+    // c->setCaseSensitivity(Qt::CaseInsensitive);
     QObject::connect(c, SIGNAL(activated(QString)),
                      this, SLOT(insertCompletion(QString)));
-    //QObject::connect(c, SIGNAL(highlighted(QString)),
-    //                 this, SLOT(insertCompletion(QString)));
+    // QObject::connect(c, SIGNAL(highlighted(QString)),
+    //                  this, SLOT(insertCompletion(QString)));
 }
 
 //----------------------------------------------------------------------------
@@ -327,17 +345,25 @@ void QtdLineEdit::dropEvent(QDropEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();
 
-    if (mimeData->hasImage()) {
+    if (mimeData->hasImage())
+    {
         emit dataImageDataDropped(qvariant_cast<QPixmap>(mimeData->imageData()));
-    } else if (mimeData->hasHtml()) {
+    }
+    else if (mimeData->hasHtml())
+    {
         emit dataHtmlDropped(mimeData->html());
-    } else if (mimeData->hasText()) {
+    }
+    else if (mimeData->hasText())
+    {
         emit dataTextDropped(mimeData->text());
-    } else if (mimeData->hasUrls()) {
+    }
+    else if (mimeData->hasUrls())
+    {
         QList<QUrl> urlList = mimeData->urls();
         QStringList urls;
 
-        for (int i = 0; i < urlList.size() && i < 32; ++i) {
+        for (int i = 0; i < urlList.size() && i < 32; ++i)
+        {
             QString url = urlList.at(i).path();
             urls << url;
         }
@@ -356,7 +382,8 @@ void QtdLineEdit::dragLeaveEvent(QDragLeaveEvent *event)
 //----------------------------------------------------------------------------
 void QtdLineEdit::insertCompletion(QString completion)
 {
-    if (!c || c->widget() != this) {
+    if (!c || c->widget() != this)
+    {
         return;
     }
 
@@ -373,7 +400,8 @@ void QtdLineEdit::insertCompletion(QString completion)
 //----------------------------------------------------------------------------
 void QtdLineEdit::focusInEvent(QFocusEvent *e)
 {
-    if (c) {
+    if (c)
+    {
         c->setWidget(this);
     }
     QLineEdit::focusInEvent(e);
@@ -383,27 +411,29 @@ void QtdLineEdit::focusInEvent(QFocusEvent *e)
 void QtdLineEdit::keyPressEvent(QKeyEvent *e)
 {
     // the following is copied from the Qt-Examples
-    if (c && c->popup() && c->popup()->isVisible()) {
+    if (c && c->popup() && c->popup()->isVisible())
+    {
         // The following keys are forwarded by the completer to the widget
-       switch (e->key()) {
-       case Qt::Key_Enter:
-       case Qt::Key_Return:
-       case Qt::Key_Escape:
-       case Qt::Key_Tab:
-       case Qt::Key_Backtab:
-            e->ignore(); 
+        switch (e->key())
+        {
+        case Qt::Key_Enter:
+        case Qt::Key_Return:
+        case Qt::Key_Escape:
+        case Qt::Key_Tab:
+        case Qt::Key_Backtab:
+            e->ignore();
             return; // let the completer do default behavior
-       default:
-           break;
-       }
+        default:
+            break;
+        }
     }
 
     bool isShortcut = ((e->modifiers() & Qt::ControlModifier) && e->key() == Qt::Key_E); // CTRL+E
-    if (!c || !isShortcut) // do not process the shortcut when we have a completer
+    if (!c || !isShortcut)                                                               // do not process the shortcut when we have a completer
         QLineEdit::keyPressEvent(e);
-//! [7]
+    //! [7]
 
-//! [8]
+    //! [8]
     const bool ctrlOrShift = e->modifiers() & (Qt::ControlModifier | Qt::ShiftModifier);
     if (!c || (ctrlOrShift && e->text().isEmpty()))
         return;
@@ -412,22 +442,25 @@ void QtdLineEdit::keyPressEvent(QKeyEvent *e)
     bool hasModifier = (e->modifiers() != Qt::NoModifier) && !ctrlOrShift;
     QString completionPrefix = text().split(" ").last();
 
-    if (!isShortcut && (hasModifier || e->text().isEmpty()|| completionPrefix.length() < 1 
-                      || eow.contains(e->text().right(1)))) {
-        if (c->popup()) c->popup()->hide();
+    if (!isShortcut && (hasModifier || e->text().isEmpty() || completionPrefix.length() < 1 || eow.contains(e->text().right(1))))
+    {
+        if (c->popup())
+            c->popup()->hide();
         return;
     }
 
-    if (completionPrefix != c->completionPrefix()) {
+    if (completionPrefix != c->completionPrefix())
+    {
         c->setCompletionPrefix(completionPrefix);
-        if (c->popup()) {
+        if (c->popup())
+        {
             c->popup()->setCurrentIndex(c->completionModel()->index(0, 0));
         }
     }
     QRect cr = cursorRect();
-    if (c->popup()) {
-        cr.setWidth(c->popup()->sizeHintForColumn(0)
-                    + c->popup()->verticalScrollBar()->sizeHint().width());
+    if (c->popup())
+    {
+        cr.setWidth(c->popup()->sizeHintForColumn(0) + c->popup()->verticalScrollBar()->sizeHint().width());
     }
     c->complete(cr); // popup it up!
 }
@@ -441,7 +474,8 @@ public:
     {
         m_pParentItem = parent;
 
-        if (m_pParentItem) {
+        if (m_pParentItem)
+        {
             m_pParentItem->appendChild(this);
         }
         m_file = file;
@@ -454,13 +488,13 @@ public:
     }
 
     //------------------------------------------------------------------------
-    void appendChild(QtdDirTreeItem* pChild)
+    void appendChild(QtdDirTreeItem *pChild)
     {
         m_childItems.append(pChild);
     }
 
     //------------------------------------------------------------------------
-    QtdDirTreeItem* child(int row)
+    QtdDirTreeItem *child(int row)
     {
         return m_childItems.value(row);
     }
@@ -479,9 +513,12 @@ public:
     //------------------------------------------------------------------------
     QVariant data(int column) const
     {
-        if (column == 0) {
+        if (column == 0)
+        {
             return m_file.name;
-        } else {
+        }
+        else
+        {
             return QVariant();
         }
     }
@@ -495,29 +532,30 @@ public:
     //------------------------------------------------------------------------
     int row() const
     {
-        if (m_pParentItem) {
-            return m_pParentItem->m_childItems.indexOf(const_cast<QtdDirTreeItem*>(this));
+        if (m_pParentItem)
+        {
+            return m_pParentItem->m_childItems.indexOf(const_cast<QtdDirTreeItem *>(this));
         }
         return 0;
     }
 
     //------------------------------------------------------------------------
-    QtdDirTreeItem* parent()
+    QtdDirTreeItem *parent()
     {
         return m_pParentItem;
     }
 
 private:
-    QList<QtdDirTreeItem*>      m_childItems;
-    QtdFileEntryInfo            m_file;
-    QtdDirTreeItem*             m_pParentItem;
+    QList<QtdDirTreeItem *> m_childItems;
+    QtdFileEntryInfo m_file;
+    QtdDirTreeItem *m_pParentItem;
 
     friend class QtdDirTreeModel;
 };
 
 //----------------------------------------------------------------------------
-QtdDirTreeModel::QtdDirTreeModel(const QtdFileEntryInfo& rootEntry, QObject* pParent)
-: QAbstractItemModel(pParent)
+QtdDirTreeModel::QtdDirTreeModel(const QtdFileEntryInfo &rootEntry, QObject *pParent)
+    : QAbstractItemModel(pParent)
 {
     m_pRootItem = new QtdDirTreeItem(rootEntry);
     setupModelData(rootEntry.files, m_pRootItem);
@@ -530,7 +568,7 @@ QtdDirTreeModel::~QtdDirTreeModel()
 }
 
 //------------------------------------------------------------------------
-QtdDirTreeItem* QtdDirTreeModel::rootItem()
+QtdDirTreeItem *QtdDirTreeModel::rootItem()
 {
     return m_pRootItem;
 }
@@ -538,19 +576,22 @@ QtdDirTreeItem* QtdDirTreeModel::rootItem()
 //------------------------------------------------------------------------
 QVariant QtdDirTreeModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()) {
+    if (!index.isValid())
+    {
         return QVariant();
     }
 
-    QtdDirTreeItem* pItem = static_cast<QtdDirTreeItem*>(index.internalPointer());
-    if (role == Qt::DecorationRole) {
+    QtdDirTreeItem *pItem = static_cast<QtdDirTreeItem *>(index.internalPointer());
+    if (role == Qt::DecorationRole)
+    {
         QFileIconProvider icons;
         QIcon icon = icons.icon(QFileInfo(pItem->m_file.path));
         return !icon.isNull() ? icon : icons.icon(pItem->m_file.bIsDir ? QFileIconProvider::Folder : QFileIconProvider::File);
-    } else if (role != Qt::DisplayRole) {
+    }
+    else if (role != Qt::DisplayRole)
+    {
         return QVariant();
     }
-
 
     return pItem->data(index.column());
 }
@@ -558,8 +599,9 @@ QVariant QtdDirTreeModel::data(const QModelIndex &index, int role) const
 //------------------------------------------------------------------------
 Qt::ItemFlags QtdDirTreeModel::flags(const QModelIndex &index) const
 {
-    if (!index.isValid()) {
-        return 0;
+    if (!index.isValid())
+    {
+        return Qt::NoItemFlags;
     }
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
@@ -568,8 +610,9 @@ Qt::ItemFlags QtdDirTreeModel::flags(const QModelIndex &index) const
 //------------------------------------------------------------------------
 QVariant QtdDirTreeModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (orientation == Qt::Horizontal && role == Qt::DisplayRole) {
-        return  m_pRootItem->data(section);
+    if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
+    {
+        return m_pRootItem->data(section);
     }
 
     return QVariant();
@@ -578,22 +621,29 @@ QVariant QtdDirTreeModel::headerData(int section, Qt::Orientation orientation, i
 //------------------------------------------------------------------------
 QModelIndex QtdDirTreeModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (!hasIndex(row, column, parent)) {
+    if (!hasIndex(row, column, parent))
+    {
         return QModelIndex();
     }
 
-    QtdDirTreeItem* pParentItem;
+    QtdDirTreeItem *pParentItem;
 
-    if (!parent.isValid()) {
+    if (!parent.isValid())
+    {
         pParentItem = m_pRootItem;
-    } else {
-        pParentItem = static_cast<QtdDirTreeItem*>(parent.internalPointer());
+    }
+    else
+    {
+        pParentItem = static_cast<QtdDirTreeItem *>(parent.internalPointer());
     }
 
-    QtdDirTreeItem* pChildItem = pParentItem->child(row);
-    if (pChildItem) {
+    QtdDirTreeItem *pChildItem = pParentItem->child(row);
+    if (pChildItem)
+    {
         return createIndex(row, column, pChildItem);
-    } else {
+    }
+    else
+    {
         return QModelIndex();
     }
 }
@@ -601,14 +651,16 @@ QModelIndex QtdDirTreeModel::index(int row, int column, const QModelIndex &paren
 //------------------------------------------------------------------------
 QModelIndex QtdDirTreeModel::parent(const QModelIndex &index) const
 {
-    if (!index.isValid()) {
+    if (!index.isValid())
+    {
         return QModelIndex();
     }
 
-    QtdDirTreeItem* pChildItem = static_cast<QtdDirTreeItem*>(index.internalPointer());
-    QtdDirTreeItem* pParentItem = pChildItem->parent();
+    QtdDirTreeItem *pChildItem = static_cast<QtdDirTreeItem *>(index.internalPointer());
+    QtdDirTreeItem *pParentItem = pChildItem->parent();
 
-    if (pParentItem == m_pRootItem) {
+    if (pParentItem == m_pRootItem)
+    {
         return QModelIndex();
     }
 
@@ -622,10 +674,13 @@ int QtdDirTreeModel::rowCount(const QModelIndex &parent) const
     if (parent.column() > 0)
         return 0;
 
-    if (!parent.isValid()) {
+    if (!parent.isValid())
+    {
         pParentItem = m_pRootItem;
-    } else {
-        pParentItem = static_cast<QtdDirTreeItem*>(parent.internalPointer());
+    }
+    else
+    {
+        pParentItem = static_cast<QtdDirTreeItem *>(parent.internalPointer());
     }
 
     return pParentItem->childCount();
@@ -634,40 +689,48 @@ int QtdDirTreeModel::rowCount(const QModelIndex &parent) const
 //------------------------------------------------------------------------
 int QtdDirTreeModel::columnCount(const QModelIndex &parent) const
 {
-    if (parent.isValid()) {
-        return static_cast<QtdDirTreeItem*>(parent.internalPointer())->columnCount();
-    } else {
+    if (parent.isValid())
+    {
+        return static_cast<QtdDirTreeItem *>(parent.internalPointer())->columnCount();
+    }
+    else
+    {
         return m_pRootItem->columnCount();
     }
 }
 
 //------------------------------------------------------------------------
-void QtdDirTreeModel::setupModelData(const QtdFileEntryInfoList& entryList, QtdDirTreeItem *parent)
+void QtdDirTreeModel::setupModelData(const QtdFileEntryInfoList &entryList, QtdDirTreeItem *parent)
 {
-    for (int i = 0; i < entryList.count(); i++) {
+    for (int i = 0; i < entryList.count(); i++)
+    {
         QtdFileEntryInfo info = entryList.at(i);
-        if (info.bIsDir) {
-            QtdDirTreeItem* pCurrent = new QtdDirTreeItem(info, parent);
+        if (info.bIsDir)
+        {
+            QtdDirTreeItem *pCurrent = new QtdDirTreeItem(info, parent);
             setupModelData(info.files, pCurrent);
         }
     }
 
-    for (int i = 0; i < entryList.count(); i++) {
+    for (int i = 0; i < entryList.count(); i++)
+    {
         QtdFileEntryInfo info = entryList.at(i);
-        if (!info.bIsDir) {
-            QtdDirTreeItem* pCurrent = new QtdDirTreeItem(info, parent);
+        if (!info.bIsDir)
+        {
+            QtdDirTreeItem *pCurrent = new QtdDirTreeItem(info, parent);
         }
     }
 }
 
 //------------------------------------------------------------------------
-QString QtdDirTreeModel::selectedDir(QTreeView* pView)
+QString QtdDirTreeModel::selectedDir(QTreeView *pView)
 {
     QModelIndex index = pView->selectionModel()->currentIndex();
     QString dir("");
 
-    if (index.isValid()) {
-        dir = static_cast<QtdDirTreeItem*>(index.internalPointer())->dirName();
+    if (index.isValid())
+    {
+        dir = static_cast<QtdDirTreeItem *>(index.internalPointer())->dirName();
     }
 
     return dir;
@@ -675,14 +738,14 @@ QString QtdDirTreeModel::selectedDir(QTreeView* pView)
 
 //==============================================================================
 QtdCheckBoxListDelegate::QtdCheckBoxListDelegate(QObject *parent)
-: QItemDelegate(parent)
-, m_pParent(dynamic_cast<QtdCheckBoxList*>(parent))
-{}
+    : QItemDelegate(parent), m_pParent(dynamic_cast<QtdCheckBoxList *>(parent))
+{
+}
 
 //--------------------------------------------------------------------------
 void QtdCheckBoxListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //Get item data
+    // Get item data
     bool value = index.data(Qt::CheckStateRole).toBool();
     QString text = index.data(Qt::DisplayRole).toString();
 
@@ -695,11 +758,11 @@ void QtdCheckBoxListDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     opt.rect = option.rect;
 
     // draw item data as CheckBox
-    style->drawControl(QStyle::CE_CheckBox,&opt,painter);
+    style->drawControl(QStyle::CE_CheckBox, &opt, painter);
 }
 
 //--------------------------------------------------------------------------
-QWidget* QtdCheckBoxListDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem & /*option*/, const QModelIndex & /*index*/) const
+QWidget *QtdCheckBoxListDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem & /*option*/, const QModelIndex & /*index*/) const
 {
     // create check box as our editor
     QCheckBox *editor = new QCheckBox(parent);
@@ -708,32 +771,32 @@ QWidget* QtdCheckBoxListDelegate::createEditor(QWidget *parent, const QStyleOpti
 }
 
 //--------------------------------------------------------------------------
- void QtdCheckBoxListDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
- {
-     //set editor data
-     QCheckBox *myEditor = static_cast<QCheckBox*>(editor);
-     myEditor->setText(index.data(Qt::DisplayRole).toString());
-     myEditor->setChecked(index.data(Qt::CheckStateRole).toBool());
- }
+void QtdCheckBoxListDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+    // set editor data
+    QCheckBox *myEditor = static_cast<QCheckBox *>(editor);
+    myEditor->setText(index.data(Qt::DisplayRole).toString());
+    myEditor->setChecked(index.data(Qt::CheckStateRole).toBool());
+}
 
 //--------------------------------------------------------------------------
 void QtdCheckBoxListDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
-    //get the value from the editor (CheckBox)
-    QCheckBox *myEditor = static_cast<QCheckBox*>(editor);
+    // get the value from the editor (CheckBox)
+    QCheckBox *myEditor = static_cast<QCheckBox *>(editor);
     bool value = myEditor->isChecked();
     bool oldValue = model->data(index, Qt::CheckStateRole).toBool();
 
-    if (value != oldValue && m_pParent) {
-        //set model data
-        QMap<int,QVariant> data = model->itemData(index);
-        data[Qt::DisplayRole]       = myEditor->text();
-        data[Qt::CheckStateRole]    = value;
-        model->setItemData(index,data);
+    if (value != oldValue && m_pParent)
+    {
+        // set model data
+        QMap<int, QVariant> data = model->itemData(index);
+        data[Qt::DisplayRole] = myEditor->text();
+        data[Qt::CheckStateRole] = value;
+        model->setItemData(index, data);
 
         m_pParent->slot_checkStateChanged(index.row(), (int)value);
     }
-
 }
 
 //--------------------------------------------------------------------------
@@ -746,36 +809,30 @@ void QtdCheckBoxListDelegate::updateEditorGeometry(QWidget *editor, const QStyle
 //--------------------------------------------------------------------------
 void QtdCheckBoxListDelegate::commitAndCloseEditor(int)
 {
-     QCheckBox *editor = qobject_cast<QCheckBox *>(sender());
-     if (editor) {
-         emit commitData(editor);
-         //emit closeEditor(editor);
-     }
+    QCheckBox *editor = qobject_cast<QCheckBox *>(sender());
+    if (editor)
+    {
+        emit commitData(editor);
+        // emit closeEditor(editor);
+    }
 }
-
 
 //==============================================================================
 QtdCheckBoxList::QtdCheckBoxList(QWidget *widget, QString emtyText, int nVersion)
-:QComboBox(widget)
-,m_currentDisplayText(emtyText)
-,m_emtyDisplayText(emtyText)
-,m_nVersion(nVersion)
-,m_bAutoBuildDisplayText(true)
-,m_displayTextSeparator(",")
+    : QComboBox(widget), m_currentDisplayText(emtyText), m_emtyDisplayText(emtyText), m_nVersion(nVersion), m_bAutoBuildDisplayText(true), m_displayTextSeparator(",")
 {
-    // set delegate items view 
+    // set delegate items view
     view()->setItemDelegate(new QtdCheckBoxListDelegate(this));
 
     // Enable editing on items view
     view()->setEditTriggers(QAbstractItemView::CurrentChanged);
 
-    // set "CheckBoxList::eventFilter" as event filter for items view 
+    // set "CheckBoxList::eventFilter" as event filter for items view
     view()->viewport()->installEventFilter(this);
 
     // it just cool to have it as defualt ;)
     view()->setAlternatingRowColors(true);
 }
-
 
 //------------------------------------------------------------------------------
 QtdCheckBoxList::~QtdCheckBoxList()
@@ -783,38 +840,35 @@ QtdCheckBoxList::~QtdCheckBoxList()
 }
 
 //------------------------------------------------------------------------------
-void QtdCheckBoxList::addItem(const QString& text, bool checked, const QVariant& userData)
+void QtdCheckBoxList::addItem(const QString &text, bool checked, const QVariant &userData)
 {
     QComboBox::addItem(text, userData);
-    this->setChecked(this->count()-1, checked);
+    this->setChecked(this->count() - 1, checked);
 }
 
-
 //------------------------------------------------------------------------------
-void QtdCheckBoxList::addItem(const QIcon& icon, const QString& text, bool checked, const QVariant& userData)
+void QtdCheckBoxList::addItem(const QIcon &icon, const QString &text, bool checked, const QVariant &userData)
 {
     QComboBox::addItem(icon, text, userData);
-    this->setChecked(this->count()-1, checked);
+    this->setChecked(this->count() - 1, checked);
 }
 
 //------------------------------------------------------------------------------
-void QtdCheckBoxList::addItem(const QString& text, const QVariant& userData)
+void QtdCheckBoxList::addItem(const QString &text, const QVariant &userData)
 {
     QComboBox::addItem(text, userData);
     update();
 }
 
-
 //------------------------------------------------------------------------------
-void QtdCheckBoxList::addItem(const QIcon& icon, const QString& text, const QVariant& userData)
+void QtdCheckBoxList::addItem(const QIcon &icon, const QString &text, const QVariant &userData)
 {
     QComboBox::addItem(icon, text, userData);
     update();
 }
 
-
 //------------------------------------------------------------------------------
-void QtdCheckBoxList::addItems(const QStringList& texts)
+void QtdCheckBoxList::addItems(const QStringList &texts)
 {
     QComboBox::addItems(texts);
     update();
@@ -823,15 +877,14 @@ void QtdCheckBoxList::addItems(const QStringList& texts)
 //------------------------------------------------------------------------------
 bool QtdCheckBoxList::eventFilter(QObject *object, QEvent *event)
 {
-      // don't close items view after we release the mouse button
-      // by simple eating MouseButtonRelease in viewport of items view
-      if(event->type() == QEvent::MouseButtonRelease && object==view()->viewport())
-      {
-            return true;
-      }
-      return QComboBox::eventFilter(object,event);
+    // don't close items view after we release the mouse button
+    // by simple eating MouseButtonRelease in viewport of items view
+    if (event->type() == QEvent::MouseButtonRelease && object == view()->viewport())
+    {
+        return true;
+    }
+    return QComboBox::eventFilter(object, event);
 }
-
 
 //------------------------------------------------------------------------------
 void QtdCheckBoxList::paintEvent(QPaintEvent *)
@@ -846,9 +899,12 @@ void QtdCheckBoxList::paintEvent(QPaintEvent *)
     initStyleOption(&opt);
 
     // if no display text been set , use m_emtyDisplayText as default
-    if(m_currentDisplayText.isNull()) {
+    if (m_currentDisplayText.isNull())
+    {
         opt.currentText = m_emtyDisplayText;
-    } else {
+    }
+    else
+    {
         opt.currentText = m_currentDisplayText;
     }
 
@@ -857,7 +913,6 @@ void QtdCheckBoxList::paintEvent(QPaintEvent *)
     // draw the icon and text
     painter.drawControl(QStyle::CE_ComboBoxLabel, opt);
 }
-
 
 //------------------------------------------------------------------------------
 void QtdCheckBoxList::setDisplayText(QString text)
@@ -896,22 +951,27 @@ void QtdCheckBoxList::setAutoBuildDisplayText(bool bAutoBuild, QString separator
 //------------------------------------------------------------------------------
 void QtdCheckBoxList::rebuildDisplayText()
 {
-    if (m_bAutoBuildDisplayText) {
+    if (m_bAutoBuildDisplayText)
+    {
         QStringList texts;
-        for (int i = 0; i < count(); i++) {
-            if (isChecked(i)) texts << itemText(i);
+        for (int i = 0; i < count(); i++)
+        {
+            if (isChecked(i))
+                texts << itemText(i);
         }
         m_currentDisplayText = texts.join(m_displayTextSeparator);
     }
 }
 
-
 //------------------------------------------------------------------------------
 bool QtdCheckBoxList::isChecked(int nIdx)
 {
-    if (nIdx < this->count()) {
+    if (nIdx < this->count())
+    {
         return this->itemData(nIdx, Qt::CheckStateRole).toBool();
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
@@ -919,7 +979,8 @@ bool QtdCheckBoxList::isChecked(int nIdx)
 //------------------------------------------------------------------------------
 void QtdCheckBoxList::setChecked(int nIdx, bool bChecked)
 {
-    if (this->count() > nIdx) {
+    if (this->count() > nIdx)
+    {
         this->setItemData(nIdx, bChecked, Qt::CheckStateRole);
         update();
     }
@@ -949,9 +1010,10 @@ void QtdCheckBoxList::slot_checkStateChanged(int row, int state)
 }
 
 //==============================================================================
-QtdWidget::QtdWidget(QWidget* parent, Qt::WindowFlags f)
-: QWidget(parent, f)
-{}
+QtdWidget::QtdWidget(QWidget *parent, Qt::WindowFlags f)
+    : QWidget(parent, f)
+{
+}
 
 //------------------------------------------------------------------------------
 QtdWidget::~QtdWidget()
@@ -960,41 +1022,44 @@ QtdWidget::~QtdWidget()
 }
 
 //------------------------------------------------------------------------------
-void QtdWidget::setData(int role, const QVariant& data)
+void QtdWidget::setData(int role, const QVariant &data)
 {
     m_data[role] = data;
 }
 
 //------------------------------------------------------------------------------
-QVariant& QtdWidget::data(int role)
+QVariant &QtdWidget::data(int role)
 {
-    if (m_data.contains(role)) {
+    if (m_data.contains(role))
+    {
         return m_data[role];
-    } else {
+    }
+    else
+    {
         return m_emptyData;
     }
 }
 
 //------------------------------------------------------------------------------
-void QtdWidget::enterEvent(QEvent*)
+void QtdWidget::enterEvent(QEvent *)
 {
     emit entered();
 }
 
 //------------------------------------------------------------------------------
-void QtdWidget::leaveEvent(QEvent*)
+void QtdWidget::leaveEvent(QEvent *)
 {
     emit left();
 }
 
 //------------------------------------------------------------------------------
-void QtdWidget::mouseDoubleClickEvent(QMouseEvent*)
+void QtdWidget::mouseDoubleClickEvent(QMouseEvent *)
 {
     emit doubleClicked();
 }
 
 //------------------------------------------------------------------------------
-void QtdWidget::mouseReleaseEvent(QMouseEvent*)
+void QtdWidget::mouseReleaseEvent(QMouseEvent *)
 {
     emit clicked();
 }
@@ -1006,9 +1071,8 @@ void QtdWidget::adjustSize()
 }
 
 //==============================================================================
-QtdTreeListBox::QtdTreeListBox(QWidget* pParent)
-: QComboBox(pParent)
- ,m_pTreeWidget(0L)
+QtdTreeListBox::QtdTreeListBox(QWidget *pParent)
+    : QComboBox(pParent), m_pTreeWidget(0L)
 {
     m_pTreeWidget = new QTreeWidget(this);
 
@@ -1023,7 +1087,7 @@ QtdTreeListBox::QtdTreeListBox(QWidget* pParent)
 }
 
 //------------------------------------------------------------------------------
-QTreeWidget* QtdTreeListBox::treeWidget()
+QTreeWidget *QtdTreeListBox::treeWidget()
 {
     return m_pTreeWidget;
 }
@@ -1054,16 +1118,21 @@ void QtdTreeListBox::paintEvent(QPaintEvent *)
 }
 
 //------------------------------------------------------------------------------
-QString QtdTreeListBox::itemPath(QTreeWidgetItem* item)
+QString QtdTreeListBox::itemPath(QTreeWidgetItem *item)
 {
-    QTreeWidgetItem* pCurIt = item;
-    if (!pCurIt) pCurIt = m_pTreeWidget->currentItem();
-    if (!pCurIt) pCurIt = m_pTreeWidget->topLevelItem(0);
-    if (!pCurIt) return "";
+    QTreeWidgetItem *pCurIt = item;
+    if (!pCurIt)
+        pCurIt = m_pTreeWidget->currentItem();
+    if (!pCurIt)
+        pCurIt = m_pTreeWidget->topLevelItem(0);
+    if (!pCurIt)
+        return "";
 
     QString text = pCurIt->text(0);
-    while (pCurIt->parent()) {
-        if (!pCurIt->parent()->text(0).isEmpty()) {
+    while (pCurIt->parent())
+    {
+        if (!pCurIt->parent()->text(0).isEmpty())
+        {
             text = pCurIt->parent()->text(0) + "/" + text;
         }
         pCurIt = pCurIt->parent();
@@ -1072,7 +1141,7 @@ QString QtdTreeListBox::itemPath(QTreeWidgetItem* item)
 }
 
 //------------------------------------------------------------------------------
-void QtdTreeListBox::slot_itemClicked(QTreeWidgetItem* item, int)
+void QtdTreeListBox::slot_itemClicked(QTreeWidgetItem *item, int)
 {
     emit selectedPath(itemPath(item));
 }

@@ -5,13 +5,14 @@ INCLUDEPATH += include ./../Shared/QtdBase
 CONFIG      += qt warn_on debug_and_release
 CONFIG      -= console
 QT 			    += xml network
+greaterThan(QT_MAJOR_VERSION, 5): QT += core5compat
 
 win32 {
 LIBS        += version.lib
 CONFIG      += WIN32
 }
 
-DEFINES     += HAVE_SVN_REVISION
+#DEFINES     += HAVE_SVN_REVISION
 
 CONFIG(debug, debug|release) {
     DESTDIR = debug

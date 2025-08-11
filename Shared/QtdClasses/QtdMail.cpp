@@ -6,11 +6,7 @@
 
 //----------------------------------------------------------------------------
 QtdMail::QtdMail(QString smtp)
-: m_smtp(smtp)
-, m_mime(eMimePlain)
-, m_bUserAuth(false)
-, m_bUseEncryption(false)
-, m_nTimeout(5000)
+    : m_smtp(smtp), m_mime(eMimePlain), m_bUserAuth(false), m_bUseEncryption(false), m_nTimeout(5000)
 {
 }
 
@@ -20,79 +16,147 @@ QtdMail::~QtdMail()
 }
 
 // Basic error checking for send() and recv() functions
-#define Check(fnStatus, error) { int iStatus = fnStatus; if(!((iStatus != -1) && iStatus)) { p->deleteLater(); return error; } }
+#define Check(fnStatus, error)             \
+    {                                      \
+        int iStatus = fnStatus;            \
+        if (!((iStatus != -1) && iStatus)) \
+        {                                  \
+            p->deleteLater();              \
+            return error;                  \
+        }                                  \
+    }
 #ifndef NDEBUG
-#if QT_VERSION >= 0x050000
-#define SendNReceive(msg, error) { \
-    QString str = msg; \
-    answer = ""; \
-    qDebug() << QString("> ") + msg; \
-    Check(smtpServer.write(str.toLatin1(), str.length()), error); \
-    while (smtpServer.waitForReadyRead(1000)) { \
-        answer += smtpServer.readAll(); \
-    } \
-    qDebug() << QString("< ") + answer; \
-    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
-        if (line.startsWith("5")) { \
-            smtpServer.close(); \
-            p->deleteLater(); \
-            return error; \
-        } \
-    } \
-}
-#else
-#define SendNReceive(msg, error) { \
-    QString str = msg; \
-    answer = ""; \
-    qDebug() << QString("> ") + msg; \
-    Check(smtpServer.write(str.toAscii(), str.length()), error); \
-    while (smtpServer.waitForReadyRead(1000)) { \
-        answer += smtpServer.readAll(); \
-    } \
-    qDebug() << QString("< ") + answer; \
-    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
-        if (line.startsWith("5")) { \
-            smtpServer.close(); \
-            p->deleteLater(); \
-            return error; \
-        } \
-    } \
-}
-#endif
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+#define SendNReceive(msg, error)                                       \
+    {                                                                  \
+        QString str = msg;                                             \
+        answer = "";                                                   \
+        qDebug() << QString("> ") + msg;                               \
+        Check(smtpServer.write(str.toLatin1(), str.length()), error);  \
+        while (smtpServer.waitForReadyRead(1000))                      \
+        {                                                              \
+            answer += smtpServer.readAll();                            \
+        }                                                              \
+        qDebug() << QString("< ") + answer;                            \
+        foreach (QString line, answer.split("\n", Qt::SkipEmptyParts)) \
+        {                                                              \
+            if (line.startsWith("5"))                                  \
+            {                                                          \
+                smtpServer.close();                                    \
+                p->deleteLater();                                      \
+                return error;                                          \
+            }                                                          \
+        }                                                              \
+    }
 #else
 #if QT_VERSION >= 0x050000
-#define SendNReceive(msg, error) { \
-    QString str = msg; \
-    Check(smtpServer.write(str.toLatin1(), str.length()), error); \
-    while (smtpServer.waitForReadyRead(1000)) { \
-        answer += smtpServer.readAll(); \
-    } \
-    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
-        if (line.startsWith("5")) { \
-            smtpServer.close(); \
-            p->deleteLater(); \
-            return error; \
-        } \
-    } \
-}
+#define SendNReceive(msg, error)                                            \
+    {                                                                       \
+        QString str = msg;                                                  \
+        answer = "";                                                        \
+        qDebug() << QString("> ") + msg;                                    \
+        Check(smtpServer.write(str.toLatin1(), str.length()), error);       \
+        while (smtpServer.waitForReadyRead(1000))                           \
+        {                                                                   \
+            answer += smtpServer.readAll();                                 \
+        }                                                                   \
+        qDebug() << QString("< ") + answer;                                 \
+        foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) \
+        {                                                                   \
+            if (line.startsWith("5"))                                       \
+            {                                                               \
+                smtpServer.close();                                         \
+                p->deleteLater();                                           \
+                return error;                                               \
+            }                                                               \
+        }                                                                   \
+    }
 #else
-#define SendNReceive(msg, error) { \
-    QString str = msg; \
-    Check(smtpServer.write(str.toAscii(), str.length()), error); \
-    while (smtpServer.waitForReadyRead(1000)) { \
-        answer += smtpServer.readAll(); \
-    } \
-    foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) { \
-        if (line.startsWith("5")) { \
-            smtpServer.close(); \
-            p->deleteLater(); \
-            return error; \
-        } \
-    } \
-}
+#define SendNReceive(msg, error)                                            \
+    {                                                                       \
+        QString str = msg;                                                  \
+        answer = "";                                                        \
+        qDebug() << QString("> ") + msg;                                    \
+        Check(smtpServer.write(str.toAscii(), str.length()), error);        \
+        while (smtpServer.waitForReadyRead(1000))                           \
+        {                                                                   \
+            answer += smtpServer.readAll();                                 \
+        }                                                                   \
+        qDebug() << QString("< ") + answer;                                 \
+        foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) \
+        {                                                                   \
+            if (line.startsWith("5"))                                       \
+            {                                                               \
+                smtpServer.close();                                         \
+                p->deleteLater();                                           \
+                return error;                                               \
+            }                                                               \
+        }                                                                   \
+    }
 #endif
 #endif
-
+#else
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+#define SendNReceive(msg, error)                                       \
+    {                                                                  \
+        QString str = msg;                                             \
+        Check(smtpServer.write(str.toLatin1(), str.length()), error);  \
+        while (smtpServer.waitForReadyRead(1000))                      \
+        {                                                              \
+            answer += smtpServer.readAll();                            \
+        }                                                              \
+        foreach (QString line, answer.split("\n", Qt::SkipEmptyParts)) \
+        {                                                              \
+            if (line.startsWith("5"))                                  \
+            {                                                          \
+                smtpServer.close();                                    \
+                p->deleteLater();                                      \
+                return error;                                          \
+            }                                                          \
+        }                                                              \
+    }
+#else
+#if QT_VERSION >= 0x050000
+#define SendNReceive(msg, error)                                            \
+    {                                                                       \
+        QString str = msg;                                                  \
+        Check(smtpServer.write(str.toLatin1(), str.length()), error);       \
+        while (smtpServer.waitForReadyRead(1000))                           \
+        {                                                                   \
+            answer += smtpServer.readAll();                                 \
+        }                                                                   \
+        foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) \
+        {                                                                   \
+            if (line.startsWith("5"))                                       \
+            {                                                               \
+                smtpServer.close();                                         \
+                p->deleteLater();                                           \
+                return error;                                               \
+            }                                                               \
+        }                                                                   \
+    }
+#else
+#define SendNReceive(msg, error)                                            \
+    {                                                                       \
+        QString str = msg;                                                  \
+        Check(smtpServer.write(str.toAscii(), str.length()), error);        \
+        while (smtpServer.waitForReadyRead(1000))                           \
+        {                                                                   \
+            answer += smtpServer.readAll();                                 \
+        }                                                                   \
+        foreach (QString line, answer.split("\n", QString::SkipEmptyParts)) \
+        {                                                                   \
+            if (line.startsWith("5"))                                       \
+            {                                                               \
+                smtpServer.close();                                         \
+                p->deleteLater();                                           \
+                return error;                                               \
+            }                                                               \
+        }                                                                   \
+    }
+#endif
+#endif
+#endif
 //----------------------------------------------------------------------------
 bool QtdMail::isValid()
 {
@@ -103,8 +167,10 @@ bool QtdMail::isValid()
 QString priv_currentAddress()
 {
     QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    foreach (QHostAddress add, addresses) {
-        if (add.protocol() == QAbstractSocket::IPv4Protocol && add.toString() != "127.0.0.1") {
+    foreach (QHostAddress add, addresses)
+    {
+        if (add.protocol() == QAbstractSocket::IPv4Protocol && add.toString() != "127.0.0.1")
+        {
             return add.toString();
         }
     }
@@ -115,61 +181,74 @@ QString priv_currentAddress()
 //----------------------------------------------------------------------------
 QtdMail::SendError QtdMail::sendMail()
 {
-    if (m_smtp == "") {
+    if (m_smtp == "")
+    {
         return eSendError_SmtpUndefined;
     }
 
-    if (m_receiverAddr == "") {
+    if (m_receiverAddr == "")
+    {
         return eSendError_ReceiverUndefined;
     }
 
-    if (m_senderAddr == "") {
+    if (m_senderAddr == "")
+    {
         return eSendError_SenderUndefined;
     }
 
     QSslSocket smtpServer;
-    QUrl       url("http://" + m_smtp);
+    QUrl url("http://" + m_smtp);
     QByteArray data;
-    QString    host = url.host();
-    QString    answer;
+    QString host = url.host();
+    QString answer;
 
-    QtdMailPrivate* p = new QtdMailPrivate();
+    QtdMailPrivate *p = new QtdMailPrivate();
 
-    p->connect(&smtpServer, SIGNAL(sslErrors(const QList<QSslError>&)), p, SLOT(slot_sslErrors(const QList<QSslError>&)));
+    p->connect(&smtpServer, SIGNAL(sslErrors(const QList<QSslError> &)), p, SLOT(slot_sslErrors(const QList<QSslError> &)));
 
-    if (m_bUseEncryption) {
+    if (m_bUseEncryption)
+    {
         smtpServer.connectToHostEncrypted(url.host(), url.port(465));
-        if (!smtpServer.waitForEncrypted(m_nTimeout)) {
-            smtpServer.close();
-            return eSendError_ServerConnection;
-        }
-    } else {
-        smtpServer.connectToHost(url.host(), url.port(25));
-        if (!smtpServer.waitForConnected(m_nTimeout)) {
+        if (!smtpServer.waitForEncrypted(m_nTimeout))
+        {
             smtpServer.close();
             return eSendError_ServerConnection;
         }
     }
-    
+    else
+    {
+        smtpServer.connectToHost(url.host(), url.port(25));
+        if (!smtpServer.waitForConnected(m_nTimeout))
+        {
+            smtpServer.close();
+            return eSendError_ServerConnection;
+        }
+    }
+
     // Receive initial response from SMTP server
     bool bOk = false;
     QDateTime curDT = QDateTime::currentDateTime();
-    while (smtpServer.waitForReadyRead()) {
+    while (smtpServer.waitForReadyRead())
+    {
         data = smtpServer.readLine();
-        if (data.length() > 0) {
-            if (data.startsWith("220 ")) {
+        if (data.length() > 0)
+        {
+            if (data.startsWith("220 "))
+            {
                 bOk = true;
             }
             break;
         }
     }
 
-    if (!bOk) {
+    if (!bOk)
+    {
         return eSendError_ServerConnection;
     }
 
     SendNReceive(QString("EHLO %1\r\n").arg(priv_currentAddress()), eSendError_Helo);
-    if (m_bUserAuth) {
+    if (m_bUserAuth)
+    {
         SendNReceive(QString("AUTH LOGIN\r\n"), eSendError_SmtpUndefined);
 #if QT_VERSION >= 0x050000
 #else
@@ -182,13 +261,14 @@ QtdMail::SendError QtdMail::sendMail()
 
     SendNReceive("DATA\r\n", eSendError_Data);
     SendNReceive(QString("From: %1 <%2>\r\nTo: %3 <%4>\r\nSubject: %5\r\ncontent-type: text/%6; charset=us-ascii\r\n\r\n%7\r\n.\r\n")
-        .arg(m_senderName == "" ? m_senderAddr : m_senderName)
-        .arg(m_senderAddr)
-        .arg(m_receiverName == "" ? m_receiverAddr : m_receiverName)
-        .arg(m_receiverAddr)
-        .arg(m_mailSubject)
-        .arg(m_mime == eMimePlain ? "plain" : "html")
-        .arg(m_mailBody), eSendError_Mail);
+                     .arg(m_senderName == "" ? m_senderAddr : m_senderName)
+                     .arg(m_senderAddr)
+                     .arg(m_receiverName == "" ? m_receiverAddr : m_receiverName)
+                     .arg(m_receiverAddr)
+                     .arg(m_mailSubject)
+                     .arg(m_mime == eMimePlain ? "plain" : "html")
+                     .arg(m_mailBody),
+                 eSendError_Mail);
 
     SendNReceive("QUIT\r\n", eSendError_Quit);
 
@@ -204,22 +284,22 @@ void QtdMail::setSmtpServer(QString smtp, bool bUseEncryption)
     m_bUseEncryption = bUseEncryption;
 }
 
-
 //----------------------------------------------------------------------------
 void QtdMail::setSender(QString senderAddress, QString senderName)
 {
     m_senderAddr = senderAddress;
-    if (senderName != "") {
+    if (senderName != "")
+    {
         m_senderName = senderName;
     }
 }
-
 
 //----------------------------------------------------------------------------
 void QtdMail::setReceiver(QString receiverAddress, QString receiverName)
 {
     m_receiverAddr = receiverAddress;
-    if (receiverName != "") {
+    if (receiverName != "")
+    {
         m_receiverName = receiverName;
     }
 }
@@ -302,25 +382,25 @@ QString QtdMail::subject()
 //----------------------------------------------------------------------------
 QString QtdMail::body()
 {
-   return m_mailBody;
+    return m_mailBody;
 }
 
 //----------------------------------------------------------------------------
 QString QtdMail::user()
 {
-   return m_userName;
+    return m_userName;
 }
 
 //----------------------------------------------------------------------------
 QString QtdMail::password()
 {
-   return m_password;
+    return m_password;
 }
 
 //----------------------------------------------------------------------------
 bool QtdMail::authenticationEnabled()
 {
-   return m_bUserAuth;
+    return m_bUserAuth;
 }
 
 //----------------------------------------------------------------------------
@@ -330,15 +410,17 @@ bool QtdMail::encryptionEnabled()
 }
 
 //----------------------------------------------------------------------------
-bool QtdMail::toXml(QDomElement& node)
+bool QtdMail::toXml(QDomElement &node)
 {
-    if (!isValid()) {
+    if (!isValid())
+    {
         return false;
     }
 
     QDomDocument doc = node.ownerDocument();
     QDomElement condNode = doc.createElement("smtp");
-    if (m_bUseEncryption) {
+    if (m_bUseEncryption)
+    {
         condNode.setAttribute("encrypted", "true");
     }
     condNode.appendChild(doc.createTextNode(smtp()));
@@ -348,7 +430,8 @@ bool QtdMail::toXml(QDomElement& node)
     condNode.appendChild(doc.createTextNode(senderAddress()));
     node.appendChild(condNode);
 
-    if (authenticationEnabled()) {
+    if (authenticationEnabled())
+    {
         condNode = doc.createElement("authentication");
 #if QT_VERSION >= 0x050000
         QByteArray passStr = password().toLatin1();
@@ -360,8 +443,8 @@ bool QtdMail::toXml(QDomElement& node)
         QtdCrypt::encrypt(passStr, QTD_PASS_HASH);
         QtdCrypt::encrypt(userStr, QTD_PASS_HASH);
 
-        condNode.setAttribute("password",   QString(passStr.toBase64()));
-        condNode.setAttribute("user",       QString(userStr.toBase64()));
+        condNode.setAttribute("password", QString(passStr.toBase64()));
+        condNode.setAttribute("user", QString(userStr.toBase64()));
 
         node.appendChild(condNode);
     }
@@ -372,19 +455,23 @@ bool QtdMail::toXml(QDomElement& node)
 //----------------------------------------------------------------------------
 void QtdMail::fromXml(QDomElement nNode)
 {
-    if (!nNode.isNull()) {
+    if (!nNode.isNull())
+    {
         QDomElement cNode = nNode.firstChildElement("smtp");
-        if (!cNode.isNull()) {
+        if (!cNode.isNull())
+        {
             m_bUseEncryption = cNode.attribute("encrypted", "false") == "true";
             setSmtpServer(cNode.text(), m_bUseEncryption);
         }
         cNode = nNode.firstChildElement("address");
-        if (!cNode.isNull()) {
+        if (!cNode.isNull())
+        {
             setSender(cNode.text(), cNode.attribute("name", qtdApp->productTitle()));
             setReceiver(cNode.text());
         }
         cNode = nNode.firstChildElement("authentication");
-        if (!cNode.isNull()) {
+        if (!cNode.isNull())
+        {
             QString user = cNode.attribute("user", "");
             QString pass = cNode.attribute("password", "");
 #if QT_VERSION >= 0x050000
@@ -398,9 +485,10 @@ void QtdMail::fromXml(QDomElement nNode)
             QtdCrypt::decrypt(userStr, QTD_PASS_HASH);
 
             setUserAuthenticationEnabled(true, QString(userStr), QString(passStr));
-        } else {
+        }
+        else
+        {
             setUserAuthenticationEnabled(false);
         }
     }
-
 }
